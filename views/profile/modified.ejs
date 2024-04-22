@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Modified</title>
+  <link rel="stylesheet" href="/profile/modified/style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <h2>User Modified</h2>
+    <p>The user information has been successfully modified.</p>
+    <div class="buttons">
+      <a href="/profile/personal" class="button">Go to Profile</a>
+      <a href="/home" class="button" id="back">Home Page</a>
+    </div>
+  </div>
+  <script>
+    const precedentButton = document.getElementById('back');
+    precedentButton.addEventListener('click', function() {
+    
+    window.history.back();
+});
+  </script>
+</body>
+</html>

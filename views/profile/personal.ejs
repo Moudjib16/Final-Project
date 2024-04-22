@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/profile/personal/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;700&display=swap">
+  <title>Profile</title>
+</head>
+<body>
+
+
+  <main class="content">
+    <form action="/modify" method="post">
+    <div class="band">
+
+      <div class="container1" id="container1">
+        <p class="pf">My Profile</p>
+        <img src="/profile/personal/pics/pfp.svg" class="pfp" id="pfp">
+        <div class="name"> <p class="full-name" id="nom">Kadache Ahmed Rami<p class="rate" id="rate"> 5</p> <img src="pics/star.svg" class="star"></div>
+        <div class="white-vertical"></div>
+      </div>
+
+   
+
+    </div>
+
+
+
+
+    <div class="card">
+      <div class="row">
+        <h1 class="title">Informations personnelles</h1>
+        <img src="/profile/personal/pics/pfp.svg" class="img">
+      </div>
+      <div class="row">
+        <div class="column">
+          <label for="prenom">Prénom</label>
+          <input type="text" class="in" name="firstname" id="prenom" value="<%=profile.firstname  %>">
+        </div>
+        <div class="column">
+          <label for="nom">Nom</label>
+          <input type="text" class="in" name="name" id="nom" value="<%=profile.name  %>">
+        </div>
+      </div>
+      <div class="row">
+        <div class="column1">
+          <label for="email">Email</label>
+          <input type="text" class="in" name="email" id="email" value="<%=profile.email  %>">
+        
+        </div> 
+         <img src="/profile/personal/pics/yes.svg" class="yes" id="yes">
+          <img src="/profile/personal/pics/error.png" class="error" id="error">
+      </div>
+      <div class="row">
+        <div class="column1">
+          <label for="adresse">Adresse</label>
+          <input type="text" class="in" name="address" id="adresse" value="<%=profile.address  %>">
+        </div>
+      </div>
+      <div class="row">
+        <div class="column1">
+          <label for="contact">Contact number</label>
+          <input type="number" class="in" name="phone" id="contact" value="<%=profile.phone  %>">
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <label for="city">City</label>
+          <input type="text" class="in" name="city" id="city" value="<%=profile.city  %>">  
+        </div>
+        <div class="column">
+          <label for="state">State</label>
+          <select class="in1" size="1" name="state" id="state">
+            <option>Algeria</option>
+            <option>Argentina</option>
+            <option>Australia</option>
+            <option>Brazil</option>
+            <option>Canada</option>
+            <option>China</option>
+            <option>Denmark</option>
+            <option>Egypt</option>
+            <option>France</option>
+            <option>Germany</option>
+            <option>India</option>
+            <option>Indonesia</option>
+            <option>Italy</option>
+            <option>Japan</option>
+            <option>Kenya</option>
+            <option>Mexico</option>
+            <option>Netherlands</option>
+            <option>Nigeria</option>
+            <option>Pakistan</option>
+            <option>Peru</option>
+            <option>Russia</option>
+            <option>Saudi Arabia</option>
+            <option>South Africa</option>
+            <option>South Korea</option>
+            <option>Spain</option>
+            <option>Sweden</option>
+            <option>Switzerland</option>
+            <option>Turkey</option>
+            <option>United Kingdom</option>
+            <option>United States</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column1">
+          <label for="password">Password</label>
+          <input type="password" class="in" name="password" id="password" value="<%=profile.password  %>">
+     
+        </div>  
+           <img src="/profile/personal/pics/yes.svg" class="yes" id="yes">
+          <img src="/profile/personal/pics/error.png" class="error" id="error">
+      </div>
+      <div class="row2">
+        
+        <button class="but0" id="but0">Retourner</button>
+        <button class="but1" id="but1" type="submit">Modifier</button>
+        </form>
+      </div>
+      
+   </div>
+    </div>
+
+
+  </main>
+
+
+
+
+  <script src="/profile/personal/script.js"></script>
+</body>
+</html>
