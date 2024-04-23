@@ -1,6 +1,7 @@
 const express = require('express');
 const user = require('./models/user');
 const app = express();
+const homeRoutes = require('./routes/homeRouter');
 const authRoutes = require('./routes/authRouter');
 const tripRoutes = require('./routes/tripRouter');
 const appMiddleware = require('./middleware/middleware')
@@ -10,21 +11,10 @@ const appMiddleware = require('./middleware/middleware')
 
 app.set('view engine', 'ejs');
 app.use(appMiddleware);
-// Routes
-app.get('/', (req, res) => {
-  res.render('home', { stylesheet: 'home/', title: 'Home' });
-});
 
-
-
+app.use(homeRoutes);
 app.use(authRoutes);
 app.use(tripRoutes);
-
-
-app.get('/home', (req, res) => {
-    res.redirect('/');
-  });
-
 
 app.get('/profile', (req, res) => {
   res.render('profile');
