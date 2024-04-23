@@ -1,35 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./partials/head.ejs') %>
+  <%-include('./partials/head.ejs')  %>
 <body>
 
-  <nav class="navbar">
-    <ul>
-      <div class="logo">
-      <p>Fi Tri9i</p>  
-      <img src="/home/pics/car.svg" class="logo_img">
-      </div>
-
-      <a href="../recherche/pass.html" class="Recherche">
-        <img src="/home/pics/rech.svg" class="rech">
-        <li class="R">Recherche</li>
-      </a>
-
-      <a href="./publier/page1" class="pub">
-        <img src="/home/pics/plus.svg" class="plus">
-        <li class="Publiertrajet">Publier trajet</li>
-      </a>
-       <!-- this place is important it change depending on the user-->
-      <div class="auth">
-        <p class="user-name" id="user-name">Kadache ahmed rami</p>
-        <img src="/home/pics/pfp.svg" class="pfp">
-        <img src="/home/pics/arrow.svg" class="arrow" id="arrow">
-      </div>
-    </ul>
-     
-    <div class="menu" id="menu"></div>
-
-  </nav>
+  <%-include('./partials/navbar.ejs')  %>
 
   <main class="content">
 
@@ -41,13 +15,16 @@
       <div class="search">
 
         <img src="/home/pics/pos.svg" class="pos">
-        <input type="text" class="input1" id="input1" placeholder="Où souhaitez-vous aller ?">
+        <input type="text" class="input1" id="input1" placeholder="place de depart">
         <div class="vertical"></div>
       
+        <img src="/home/pics/pos.svg" class="pos2">
+        <input type="text" class="input4" id="input4" placeholder="Où souhaitez-vous aller ?">
+        <div class="vertical"></div>
+
         <img src="/home/pics/cal.svg" class="cal">
         <input type="date" class="input2" id="input2" placeholder="Aujourd'hui">
         <div class="vertical"></div>
-
 
         <img src="/home/pics/pp.svg" class="pp">
         <input type="number" class="input3" id="input3" placeholder="01">
@@ -79,10 +56,11 @@
           <p class="tex2">Où que vous alliez, en bus ou en covoiturage, trouvez le trajet idéal parmi notre large choix .</p>
         </div>
       </div>
-
+       
     </div>
 
-
+    <img src="/home/pics/bugatti.svg" class="bugatti" id="bugatti">
+    <img src="/home/pics/bugatti.svg" class="bugatti1" id="bugatti1">
 
     <div class="band">
 
@@ -125,7 +103,7 @@
        
         <h1 class="bigt0">À propos</h1>
         <p class="smallt">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-        <a href="notready.html" class="more">En savoir plus</a>
+        <a href="../about_us/pass.html" class="more">En savoir plus</a>
       </div>
 
       <div class="card1">
@@ -142,8 +120,19 @@
         <a href="notready.html" class="more">En savoir plus</a>
       </div>
     </div>
+
+
+
+
+
   </main>
-  <%- include('./partials/footer.ejs') %>
-<script src="/home/script.js"></script>
+
+
+   <%- include('./partials/footer.ejs') %>
+  <script src="/home/script.js"></script>
+  
+  
+
+</script>
 </body>
 </html>

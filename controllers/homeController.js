@@ -1,5 +1,5 @@
 exports.getHome =  (req, res) => {
-    res.render('home', { stylesheet: 'home/', title: 'Home' });
+    res.render('home', { stylesheet: 'home/', title: 'Home'});
 };
 
 exports.getRedirectHome = (req,res) => {

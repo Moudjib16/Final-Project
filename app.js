@@ -6,6 +6,7 @@ const homeRoutes = require('./routes/homeRouter');
 const authRoutes = require('./routes/authRouter');
 const profileRoutes = require('./routes/profileRouter');
 const tripRoutes = require('./routes/tripRouter');
+const searchRoutes = require('./routes/searchRouter');
 const payementRoutes = require('./routes/payementRouter');
 const errorHandler = require('./routes/errorHandler')
 
@@ -21,6 +22,7 @@ app.use(homeRoutes);
 app.use(authRoutes);
 app.use(profileRoutes);
 app.use(tripRoutes);
+app.use(searchRoutes);
 app.use(payementRoutes);
 app.use(errorHandler);
 
