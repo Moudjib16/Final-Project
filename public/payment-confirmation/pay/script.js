@@ -16,7 +16,7 @@
             event.preventDefault(); // Prevent form submission
             if (checkInputs()) {
                 // All inputs are filled, navigate to a new page or perform other actions
-                window.location.href = '../confirm/pass.html';
+                window.location.href = '/confirm';
             } else {
                 alert('Veuillez remplir tous les champs.');
             }
