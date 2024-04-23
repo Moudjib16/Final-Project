@@ -2,27 +2,20 @@ const express = require('express');
 const morgan = require('morgan');
 const session = require('express-session');
 const bodyParser = require('body-parser');
-const connectDB = require('./db/db');
+const connectDB = require('../db/db');
+const appMiddleware = express();
 
-const app = express();
+appMiddleware.use(express.static('public'));
 
-// Register view engine
-app.set('view engine', 'ejs');
-
-// Static files
-app.use(express.static('public'));
-
-// Middleware
-app.use(morgan('dev'));
-app.use(express.urlencoded({ extended: true }));
-app.use(session({
+appMiddleware.use(morgan('dev'));
+appMiddleware.use(express.urlencoded({ extended: true }));
+appMiddleware.use(session({
   secret: 'ID',
   resave: false,
   saveUninitialized: true,
 }));
-app.use(bodyParser.json());
+appMiddleware.use(bodyParser.json());
 
-// Connect to MongoDB
 connectDB();
 
-module.exports = app;
+module.exports = appMiddleware;

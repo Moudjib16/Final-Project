@@ -1,38 +1,15 @@
 const express = require('express');
-const path = require('path');
-const morgan = require('morgan');
 const user = require('./models/user');
-const trip = require('./models/trip');
-const bcrypt = require('bcrypt');
-const connectDB = require('./db/db');
-const session = require ('express-session');
 const app = express();
-const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRouter');
 const tripRoutes = require('./routes/tripRouter');
+const appMiddleware = require('./middleware/middleware')
 
 
 
-// Register view engine
+
 app.set('view engine', 'ejs');
-
-// Static files
-app.use(express.static('public'));
-
-// Middleware
-app.use(morgan('dev'));
-app.use(express.urlencoded({ extended: true }));
-//session middleware to store user data
-app.use(session({
-  secret: 'ID',
-  resave: false,
-  saveUninitialized: true,
-}));
-app.use(bodyParser.json());
-
-// Connect to MongoDB
-connectDB();
-
+app.use(appMiddleware);
 // Routes
 app.get('/', (req, res) => {
   res.render('home', { stylesheet: 'home/', title: 'Home' });
