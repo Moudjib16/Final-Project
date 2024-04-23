@@ -75,8 +75,8 @@ client_pagelist=[
 'notready.html'
 ]
 guest_pagelist=[
-'./login',
-'./signup'
+'/login',
+'/signup'
 ]
     
 
