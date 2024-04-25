@@ -43,6 +43,7 @@ exports.postLogin = async (req, res) => {
     const passwordMatch = await bcrypt.compare(req.body.password, check.password);
     if(passwordMatch){
       req.session.userID = check._id;
+      req.session.usertype = check.userType; 
       res.redirect('/');
     }
     else{
@@ -53,6 +54,8 @@ exports.postLogin = async (req, res) => {
     res.send('wrong details');
   }
 };
+
+
 
 exports.logout = (req, res) => {
   res.render('../views/login');
