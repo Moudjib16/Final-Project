@@ -43,6 +43,7 @@ exports.postLogin = async (req, res) => {
     const passwordMatch = await bcrypt.compare(req.body.password, check.password);
     if(passwordMatch){
       req.session.userID = check._id;
+      req.session.usertype = check.userType; 
       res.redirect('/');
     }
     else{
@@ -54,19 +55,7 @@ exports.postLogin = async (req, res) => {
   }
 };
 
-exports.getuserData = async (req, res) => {
-  const userID = req.session.userID;
-  try {
-    const user = await user.findById(userID);
-    res.json(user)
-  } 
-  catch (error) {
-    console.log(error);
-    res.status(500).json({error: "Internal server error"})
-  }
-  
 
-};
 
 exports.logout = (req, res) => {
   res.render('../views/login');

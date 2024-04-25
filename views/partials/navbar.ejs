@@ -24,7 +24,6 @@
    
   <div class="menu" id="menu"></div>
   <script>
-    
 let arrow = document.getElementById('arrow');
 let menu = document.getElementById('menu');
 let visible = false;
@@ -35,32 +34,16 @@ types=['guest','client','conducteur','admine'];
 
 let user={
 
-    nom:'Ziad',
-    prenom:'Rafik',
+    nom:'<%=profile.name%>',
+    prenom:'<%=profile.firstname%>',
     age:20,    
-    type:types[0], 
+    type:types[<%=profile.userType%>], 
 
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-  try {
-    const response = await fetch('/userData');
-    const data = await response.json();
-    console.log(data);
-    if(data)
-    {
-        user.nom=data.nom;
-        user.prenom=data.prenom;
-        user.type=types[data.type];
-    
-  }
-    console.log(userData);
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
-});
 let pub = document.getElementById("pub");
 let rech = document.getElementById("rech");
+
 if( user.type==types[1])
 {
     pub.style.display='none'
@@ -165,7 +148,6 @@ function addoption(content , img_src ,page){
     element.appendChild(Im);
     element.appendChild(text);
     element.appendChild(cot);
-    
     
     element.classList.add("option");
     
