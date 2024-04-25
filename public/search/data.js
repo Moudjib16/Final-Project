@@ -192,26 +192,27 @@ let cardData = [
 
 
 
-
-
+let data
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    // Fetch card data from the server
-    const response = await fetch('/api/cards');
+    const response = await fetch('/data');
     const data = await response.json();
 
-    // Replace cardData array with fetched data
-    cardData = data;
+    console.log(cardData);
+    console.log(cardData.length)
 
-    // Now you can use the updated cardData array as needed
+    for (let i = 0; i < cardData.length; i++) {
+      cardData[i].date = data[i].dateData;
+      cardData[i].departure.place = data[i].depart;
+      cardData[i].departure.date = data[i].time;
+      cardData[i].arrival.place = data[i].arrivee;
+      cardData[i].price = data[i].price;
+      cardData[i].driver.name = data[i].driver.name;
+      cardData[i].driver.rate = data[i].driver.rate;
+      cardData[i].available_places = data[i].available_places;
+      console.log(cardData)
+  }
     console.log(cardData); // Example usage
-
-    // You can call your functions here or perform any other operations with the fetched data
-    const cheapestCard = findCheapestCard(cardData);
-    const mostComfortableCard = findMostComfortableCard(cardData);
-
-    console.log('Cheapest Card:', cheapestCard);
-    console.log('Most Comfortable Card:', mostComfortableCard);
   } catch (error) {
     console.error('Error fetching data:', error);
   }

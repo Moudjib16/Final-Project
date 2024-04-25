@@ -54,6 +54,20 @@ exports.postLogin = async (req, res) => {
   }
 };
 
+exports.getuserData = async (req, res) => {
+  const userID = req.session.userID;
+  try {
+    const user = await user.findById(userID);
+    res.json(user)
+  } 
+  catch (error) {
+    console.log(error);
+    res.status(500).json({error: "Internal server error"})
+  }
+  
+
+};
+
 exports.logout = (req, res) => {
   res.render('../views/login');
 };

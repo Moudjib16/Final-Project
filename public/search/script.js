@@ -85,6 +85,7 @@ function createCard(depart_date,depart_place,prix,arrive_date,arrive_place,drive
       </div>
   `;
   card.id = 'card';
+  console.log(card + "card created succesfully");
   return card;
 
   
@@ -133,6 +134,7 @@ function createCard_s(depart_date,depart_place,prix,arrive_date,arrive_place,dri
         </div>
     `;
     card.id = 'card';
+    console.log(card + "cards created succesfully");
     return card;
   
     
@@ -146,18 +148,27 @@ function createCard_s(depart_date,depart_place,prix,arrive_date,arrive_place,dri
 function searchCards(date, departurePlace, arrivalPlace, availablePlaces) {
   return cardData.filter(card => {
       // Check if date matches
-      if (date && card.date != date) return false;
+      if (date && card.date != date) {
+        console.log("no cards on this date")
+        return false;}
 
       // Check if departure place matches
-      if (departurePlace && card.departure.place != departurePlace) return false;
+      if (departurePlace && card.departure.place != departurePlace) {
+        console.log("no cards on this depart")
+        return false;}
 
       // Check if arrival place matches
-      if (arrivalPlace && card.arrival.place != arrivalPlace) return false;
+      if (arrivalPlace && card.arrival.place != arrivalPlace) {
+        console.log("no cards on this arrivee")
+        return false;}
 
       // Check if available places match
-      if (availablePlaces && card.available_places != availablePlaces) return false;
+      if (availablePlaces && card.available_places != availablePlaces) {
+        console.log("no cards on this places")
+        return false;}
 
       // If all criteria match, return true to keep the card in the filtered array
+      console.log("found some cards");
       return true;
   });
 }

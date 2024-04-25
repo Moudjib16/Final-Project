@@ -1,5 +1,4 @@
 const express = require('express');
-const user = require('./models/user');
 const app = express();
 const appMiddleware = require('./middleware/middleware')
 const homeRoutes = require('./routes/homeRouter');
@@ -8,7 +7,7 @@ const profileRoutes = require('./routes/profileRouter');
 const tripRoutes = require('./routes/tripRouter');
 const searchRoutes = require('./routes/searchRouter');
 const payementRoutes = require('./routes/payementRouter');
-const errorHandler = require('./routes/errorHandler')
+const errorHandler = require('./routes/errorHandler');
 
 
 

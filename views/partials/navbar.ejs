@@ -5,7 +5,7 @@
     <img src="/home/pics/car.svg" class="logo_img">
     </div>
 
-    <a href="search" class="Recherche" id="rech">
+    <a href="./search" class="Recherche" id="rech">
       <img src="/home/pics/rech.svg" class="rech ">
       <li class="R">Recherche</li>
     </a>
@@ -38,9 +38,27 @@ let user={
     nom:'Ziad',
     prenom:'Rafik',
     age:20,    
-    type:types[3], 
+    type:types[0], 
 
 }
+
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const response = await fetch('/userData');
+    const data = await response.json();
+    console.log(data);
+    if(data)
+    {
+        user.nom=data.nom;
+        user.prenom=data.prenom;
+        user.type=types[data.type];
+    
+  }
+    console.log(userData);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+});
 let pub = document.getElementById("pub");
 let rech = document.getElementById("rech");
 if( user.type==types[1])
@@ -50,8 +68,8 @@ if( user.type==types[1])
 
 if( user.type==types[0])
 {
-    pub.href="../inscr/pass.html";
-    rech.href="../inscr/pass.html";
+    pub.href="../publier/page1";
+    rech.href="../search";
 }
 
 let admin_options=['vos trajet','Messages','Profile','Paiment','statistic','rapport','Deconxion'];
@@ -112,8 +130,8 @@ client_pagelist=[
 'notready.html'
 ]
 guest_pagelist=[
-'signin',
-'login'
+'login',
+'signup'
 ]
     
 

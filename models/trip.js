@@ -33,7 +33,7 @@ const Schema = new mongoose.Schema({
         type : Number,
         default: 0
     },
-    places_taken: {
+    available_places: {
         type : Number,
         default: 0
     },
@@ -42,8 +42,19 @@ const Schema = new mongoose.Schema({
         default: "Bonjour ! je vais voir ma famille . J'ai beaucouop de place dans le coffre ." 
     },
     driver: {
+        name :{
+        type : String,
+        default: 'Ya5o'
+    },
+    phone :{
         type : String,
         default: 'none'
+
+    },
+    rate:{
+        type : Number,
+        default: 5
+    }
     },
 }, { timestamps: true });
 
