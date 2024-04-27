@@ -11,10 +11,8 @@ exports.getHome = async (req, res) => {
                 firstname: "In",
                 userType: 0
             };
-            console.log("Profile not found. Using default profile.");
             res.render('home', { stylesheet: 'home/', title: 'Home', profile: defaultProfile });
         } else {
-            console.log("Profile found:", profile);
             res.render('home', { stylesheet: 'home/', title: 'Home', profile });
         }
     } catch (error) {

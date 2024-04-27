@@ -1,4 +1,6 @@
 const trip = require('../models/trip');
+const User = require('../models/user')
+
 
 
 exports.createTrip = async (req, res) => {
@@ -171,40 +173,53 @@ exports.updateDescription =  async (req, res) => {
 };
 
 
-exports.getDepart = (req, res) => {
-  res.render('publier/page1');
+exports.getDepart = async (req, res) => {
+  const profile = await User.findById(req.session.userID);
+  if(!profile){
+    res.render('login');
+  }else{
+    res.render('publier/page1' , {profile});
+  }
 };
 
-exports.getDepart0 = (req, res) => {
-  res.render('publier/page2');
+exports.getDepart0 = async (req, res) => {
+  const profile = await User.findById(req.session.userID);
+  res.render('publier/page2' , {profile});
 };
 
-exports.getArrivee = (req, res) => {
-  res.render('publier/page3');
+exports.getArrivee = async (req, res) => {
+  const profile = await User.findById(req.session.userID);
+  res.render('publier/page3' , {profile});
 };
 
-exports.getArrivee0 = (req, res) => {
-  res.render('publier/page4');
+exports.getArrivee0 = async (req, res) => {
+  const profile = await User.findById(req.session.userID);
+  res.render('publier/page4', {profile});
 };
 
-exports.getDate = (req, res) => {
-  res.render('publier/calendaire');
+exports.getDate = async (req, res) => {
+  const profile = await User.findById(req.session.userID);
+  res.render('publier/calendaire', {profile});
 };
 
-exports.getTime = (req, res) => {
-  res.render('publier/heure');
+exports.getTime = async (req, res) => {
+  const profile = await User.findById(req.session.userID);
+  res.render('publier/heure', {profile});
 };
 
-exports.getPlaces = (req, res) => {
-  res.render('publier/people');
+exports.getPlaces = async (req, res) => {
+  const profile = await User.findById(req.session.userID);
+  res.render('publier/people', {profile});
 };
 
-exports.getPrice = (req, res) => {
-  res.render('publier/prix');
+exports.getPrice = async (req, res) => {
+  const profile = await User.findById(req.session.userID);
+  res.render('publier/prix', {profile});
 };
 
-exports.getDescription = (req, res) => {
-  res.render('publier/description');
+exports.getDescription = async (req, res) => {
+  const profile = await User.findById(req.session.userID);
+  res.render('publier/description', {profile});
 };
 
 

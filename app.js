@@ -8,12 +8,16 @@ const tripRoutes = require('./routes/tripRouter');
 const searchRoutes = require('./routes/searchRouter');
 const payementRoutes = require('./routes/payementRouter');
 const errorHandler = require('./routes/errorHandler');
+const nodemailer = require('./utils/nodemailer')
 
 
 
 //middleware
 app.set('view engine', 'ejs');
 app.use(appMiddleware);
+
+//Utilities
+app.use('nodemailer')
 
 
 //Routes
