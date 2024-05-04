@@ -1,29 +1,4 @@
-<nav class="navbar">
-  <ul>
-    <a href="../" class="logo">
-    <p>Fi Tri9i</p>  
-    <img src="/home/pics/car.svg" class="logo_img">
-    </a>
 
-    <a href="./search" class="Recherche" id="rech">
-      <img src="/home/pics/rech.svg" class="rech ">
-      <li class="R">Recherche</li>
-    </a>
-
-    <a href="./publier/page1" class="pub" id="pub">
-      <img src="/home/pics/plus.svg" class="plus">
-      <li class="Publiertrajet">Publier trajet</li>
-    </a>
-     <!-- this place is important it change depending on the user-->
-    <div class="auth">
-      <p class="user-name" id="user-name">Kadache ahmed rami</p>
-      <img src="/home/pics/pfp.svg" class="pfp">
-      <img src="/home/pics/arrow.svg" class="arrow" id="arrow">
-    </div>
-  </ul>
-   
-  <div class="menu" id="menu"></div>
-  <script>
 let arrow = document.getElementById('arrow');
 let menu = document.getElementById('menu');
 let visible = false;
@@ -34,16 +9,15 @@ types=['guest','client','conducteur','admine'];
 
 let user={
 
-    nom:'<%=profile.name%>',
-    prenom:'<%=profile.firstname%>',
+    nom:'kadache',
+    prenom:'ahmed rami',
     age:20,    
-    type:types[<%=profile.userType%>], 
+    type:types[0], 
 
 }
 
-let pub = document.getElementById("pub");
 let rech = document.getElementById("rech");
-
+let pub = document.getElementById("pub");
 if( user.type==types[1])
 {
     pub.style.display='none'
@@ -51,8 +25,8 @@ if( user.type==types[1])
 
 if( user.type==types[0])
 {
-    pub.href="../publier/page1";
-    rech.href="../search";
+    pub.href="../inscr/pass.html";
+    rech.href="../inscr/pass.html";
 }
 
 let admin_options=['vos trajet','Messages','Profile','Paiment','statistic','rapport','Deconxion'];
@@ -62,37 +36,37 @@ let guest_options=['log in','sign up'];
 
 
 let admin_imglist=[
-'./home/pics/menu-icons/trajet.png',
-'./home/pics/menu-icons/message.png',
-'./home/pics/menu-icons/profile.png',
-'./home/pics/menu-icons/pay.svg',
-'./home/pics/menu-icons/statistic.png',
-'./home/pics/menu-icons/report.png',
-'./home/pics/menu-icons/log-out.png'
+'pics/menu-icons/trajet.png',
+'pics/menu-icons/message.png',
+'pics/menu-icons/profile.png',
+'pics/menu-icons/pay.svg',
+'pics/menu-icons/statistic.png',
+'pics/menu-icons/report.png',
+'pics/menu-icons/log-out.png'
 ];
 let driver_imglist=[
-'./home/pics/menu-icons/trajet.png',
-'./home/pics/menu-icons/message.png',
-'./home/pics/menu-icons/profile.png',
-'./home/pics/menu-icons/pay.svg',
-'./home/pics/menu-icons/log-out.png'
+'pics/menu-icons/trajet.png',
+'pics/menu-icons/message.png',
+'pics/menu-icons/profile.png',
+'pics/menu-icons/pay.svg',
+'pics/menu-icons/log-out.png'
 ];
 let client_imglist=[
-'./home/pics/menu-icons/trajet.png',
-'./home/pics/menu-icons/message.png',
-'./home/pics/menu-icons/profile.png',
-'./home/pics/menu-icons/log-out.png'
+'pics/menu-icons/trajet.png',
+'pics/menu-icons/message.png',
+'pics/menu-icons/profile.png',
+'pics/menu-icons/log-out.png'
 ];
 let guest_imglist=[
-'./home/pics/menu-icons/log.png',
-'./home/pics/menu-icons/sign.png',
+'pics/menu-icons/log.png',
+'pics/menu-icons/sign.png',
 ];
 
 
 let admin_pagelist=[
 'notready.html',
 'notready.html',
-'profile',
+'../Profile/pass.html',
 'notready.html',
 'notready.html',
 'notready.html',
@@ -101,7 +75,7 @@ let admin_pagelist=[
 let driver_pagelist=[
 'notready.html',
 'notready.html',
-'profile',
+'../Profile/pass.html',
 'notready.html',
 'notready.html'
 ]
@@ -109,20 +83,18 @@ client_pagelist=[
 
 'notready.html',
 'notready.html',
-'profile',
+'../Profile/pass.html',
 'notready.html'
 ]
 guest_pagelist=[
-'login',
-'signup'
+'../sign_login/auth.html',
+'../sign_login/auth.html'
 ]
     
 
+
+
 parameterValue="sign";
-
-
-
-
 
 // fonction pour ajouter un option
 function addoption(content , img_src ,page){
@@ -148,6 +120,7 @@ function addoption(content , img_src ,page){
     element.appendChild(Im);
     element.appendChild(text);
     element.appendChild(cot);
+    
     
     element.classList.add("option");
     
@@ -181,6 +154,8 @@ function create(options,imglist,pagelist)
     name.innerText=user.nom+' '+user.prenom;
 }
 
+
+
 switch(user.type){
 
     case types[0]: create(guest_options,guest_imglist,guest_pagelist); break;
@@ -189,6 +164,19 @@ switch(user.type){
     case types[3]: create(admin_options,admin_imglist,admin_pagelist);break;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 arrow.addEventListener('click',function(){
 
@@ -206,6 +194,28 @@ arrow.addEventListener('click',function(){
     
 
 })
-    
-  </script>
-</nav>
+
+
+
+
+
+
+
+
+document.getElementById('look').addEventListener('click', function() {
+    var input1 = document.getElementById('input1').value.trim();
+    var input2 = document.getElementById('input2').value.trim();
+    var input3 = parseInt(document.getElementById('input3').value);
+
+    if (input1 === '' || input2 === '' || isNaN(input3) || input3 < 1 || input3 > 5) {
+        alert('Veuillez remplir tous les champs correctement.');
+        return;
+    }
+
+    var parametre = [input1, input2, input3];
+    console.log('Paramètres:', parametre);
+
+    var queryString = '?input1=' + encodeURIComponent(parametre[0]) + '&input2=' + encodeURIComponent(parametre[1]) + '&input3=' + encodeURIComponent(parametre[2]);
+    var nextPageURL = '../recherche/pass.html' + queryString;
+    window.location.href = nextPageURL; // Redirect to pass.html with parameters
+});

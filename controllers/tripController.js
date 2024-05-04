@@ -78,7 +78,7 @@ exports.updateArrivee0 = async (req, res) => {
 
 exports.updateDate = async (req, res) => {
   try {
-    const dateData = req.body.content;
+    let dateData = req.body.content;
     const tripId = req.session.tripId;
     if (!tripId) {
       return res.status(404).send({ message: 'Trip ID not found in session' });
@@ -87,6 +87,11 @@ exports.updateDate = async (req, res) => {
     if (!existingTrip) {
       return res.status(404).send({ message: 'Trip not found' });
     }
+    console.log(dateData)
+    if (dateData[9] === undefined) {
+      dateData = dateData.slice(0, 8) + '0' + dateData.slice(8);
+    }
+    console.log(dateData)
     existingTrip.dateData = dateData;
     await existingTrip.save();
   } catch (err) {
@@ -127,6 +132,7 @@ exports.updatePlaces =  async (req, res) => {
       return res.status(404).send({ message: 'Trip not found' });
     }
     existingTrip.places = places;
+    existingTrip.available_places = places;
     await existingTrip.save();
   } catch (err) {
     console.log(err);

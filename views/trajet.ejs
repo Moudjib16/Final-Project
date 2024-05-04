@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/trajet/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;700&display=swap">
+  <title >Fi Tri9i</title>
+</head>
+<body>
+
+  <%- include('./partials/navbar.ejs')  %>
+
+
+  <main class="content">
+
+    <div class="date">
+      <h1 class="jour" id="jour">Samedi</h1>
+      <h1 class="nb" id="nb">6</h1>
+      <h1 class="month" id="month">avril</h1>
+    </div>
+
+    <div class="Container0">
+      <div class="place"> <p class="depart-date" id="depart-date">12:06</p> <img src="/trajet/pics/trajet/pos.svg" class="pos"> <p class="depart-place" id="depart-place">7, place Guy Leveque 00274 Paris</p><img src="pics/trajet/cotation.svg" class="cotation "></div>
+<div class="vertical-line"></div>
+      <div class="place"> <p class="arrive-date" id="arrive-date">16:06</p> <img src="/trajet/pics/trajet/pos.svg" class="pos"> <p class="arrive-place" id="arrive-place">37, place Corinne Etienne 49378 Lille</p><img src="pics/trajet/cotation.svg" class="cotation "></div>
+
+    </div>
+    <div class="Container1">
+      <div class="place"> <p>Prix total pour un passager</p><p class="Prix" id="Prix">600 da</p></div>
+    </div>
+
+    <div class="Container2">
+      <div class="info">
+        <div class="driver">
+          <p class="name" id="name">Kadache</p>
+          <div class="reviews">
+            <img src="/trajet/pics/star.svg" class="star">
+            <p class="rate" id="rate">6/5</p>
+            <p class="avis" id="avis">- 8 avis</p>
+          </div> 
+        </div>
+    
+        <img src="/trajet/pics/pfp.svg" class="women" >
+        <img src="/trajet/pics/trajet/cotation.svg" class="cotation1">
+      </div>
+
+      <div class="place"><img class="ico" src="/trajet/pics/trajet/sheild.svg"> <p>Profile verifiee</p></div>
+      <div class="place"><img class="ico" src="/trajet/pics/trajet/cal.svg"> <p>n'annule jamais ses trajets</p></div>
+      <div class="place"><img class="ico" src="/trajet/pics/trajet/message.svg" > <p>Contacter Julie</p></div>
+      <div class="place"><img class="ico" src="/trajet/pics/trajet/thunder.svg"> <p>Votre réservation sera confirmée instantanément</p></div>
+      <div class="place"><img class="ico" src="/trajet/pics/trajet/equipe.svg"> <p id="Max">Max. places : 4</p> <p id="Reserver" class="Reserver" >places Reservées : 2</p></div>
+      <div class="row1">
+        <img src="/trajet/pics/pfp-men.svg" class="pf1">
+        <img src="/trajet/pics/pfp-men.svg" class="pf3">
+        <img src="/trajet/pics/pfp-men.svg" class="pf5">
+      </div>
+     <diV class="python">
+      <div class="blue-python" id="lengh"></div>
+      <div class="red1"></div>
+      <div class="red2"></div>
+      <div class="red3"></div>
+      <div class="red4"></div>
+      <div class="red5"></div>
+     </diV>
+     <div class="row2">
+      <img src="/trajet/pics/pfp.svg" class="pf2">
+      <img src="/trajet/pics/pfp.svg" class="pf4">
+    
+    </div>
+    </div>
+
+    <div class="Container3">
+      <div class="place"> <p class="sig">Signaler ce trajet </p></div>
+    </div>
+
+  
+    <a href="/pay" class="look"> Reserver</a>
+  </main>
+  
+  <button class="test" id="more">+</button>
+  <button class="test" id="less">-</button>
+
+<script src="/trajet/script.js"></script>
+</body>
+</html>
