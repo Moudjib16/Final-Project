@@ -264,7 +264,7 @@ cards.forEach(function(element)
 element.addEventListener('click',function(){
 
 
-    window.location.href='../trajet/pass.html';
+    window.location.href='../trajet';
 
 
 });
@@ -287,7 +287,7 @@ document.getElementById('look').addEventListener('click', function() {
 
 
     if (input_1.value === '' || input_2.value === '' || isNaN(input_3.value) || input_3.value < 1 || input_3.value > 5) {
-        console.log(arslane);
+        window.location.href='../no-location';
         return;
     }
 

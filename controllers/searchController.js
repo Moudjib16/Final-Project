@@ -1,7 +1,20 @@
 const Trips = require('../models/trip');
+const User = require('../models/user')
 
-exports.getSearch =  (req, res) => {
-    res.render('search' , {display: false});
+exports.getSearch =  async(req, res) => {
+  const exclude = {_id:0 , createdAt:0 , updatedAt:0}
+  const profile = await User.findById(req.session.userID).lean();
+  const trips = await Trips.find({}, exclude);
+  if (!profile) {
+    const defaultProfile = {
+        name: "Log",
+        firstname: "In",
+        userType: 0
+    };
+    res.render('search' , {trips, profile: defaultProfile});
+  } else {
+  res.render('search', {trips, profile });
+  }
 };
 
 exports.getCardsData = async (req, res) => {

@@ -404,9 +404,7 @@ font-size: 28px;
 
 
 @media only screen and (max-width: 1300px) {
-  body{
-   
-  }
+
 
   .content{
     width: 80%;
@@ -433,9 +431,6 @@ font-size: 28px;
   html{
     overflow-y: hidden;
   } 
-  body{
-   
-  }
 
   .content{
     width: 100%;
@@ -658,4 +653,3 @@ font-size: 28px;
 
 
 }
-

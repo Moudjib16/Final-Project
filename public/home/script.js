@@ -17,7 +17,7 @@ document.getElementById('look').addEventListener('click', function() {
     console.log('Paramètres:', parametre);
 
     var queryString = '?input1=' + encodeURIComponent(parametre[0]) + '&input2=' + encodeURIComponent(parametre[1]) + '&input3=' + encodeURIComponent(parametre[2])+'&input4=' + encodeURIComponent(parametre[3]);
-    var nextPageURL = '../recherche/pass.html' + queryString;
+    var nextPageURL = './search' + queryString;
     window.location.href = nextPageURL; // Redirect to pass.html with parameters
 });
 
