@@ -72,9 +72,9 @@ function createCard(depart_date,depart_place,prix,arrive_date,arrive_place,drive
       </div>
       <div class="widget0">
 
-          <p class="depart" id="depart-date">`+ arrive_date+`</p>
+          <p class="depart" id="arrive-date">`+ arrive_date+`</p>
           <img src="pics/pos.svg" class="pos1">
-          <p class="depart" id="depart">`+ arrive_place+`</p>
+          <p class="depart" id="arrive">`+ arrive_place+`</p>
       </div>
       <div class="line1"></div>
       <div class="widget0">
@@ -121,9 +121,9 @@ function createCard_s(depart_date,depart_place,prix,arrive_date,arrive_place,dri
         </div>
         <div class="widget0">
   
-            <p class="depart" id="depart-date">`+ arrive_date+`</p>
+            <p class="depart" id="arrive-date">`+ arrive_date+`</p>
             <img src="pics/pos.svg" class="pos1">
-            <p class="depart" id="depart">`+ arrive_place+`</p>
+            <p class="depart" id="arrive">`+ arrive_place+`</p>
         </div>
         <div class="line1"></div>
         <div class="widget0">
@@ -263,8 +263,22 @@ cards.forEach(function(element)
 {
 element.addEventListener('click',function(){
 
+  let cardParams = {
+    depart_date: element.querySelector('#depart-date').textContent,
+    depart_place: element.querySelector('#depart').textContent,
+    arrive_date: element.querySelector('#arrive-date').textContent, // Assuming this is the same as depart_date
+    arrive_place: element.querySelector('#arrive').textContent, // Assuming this is the same as depart_place
+    prix: element.querySelector('#prix').textContent,
+    place: element.querySelector('#places').textContent,
+    driver_name: element.querySelector('#driver-name').textContent,
+    rate: element.querySelector('#rating').textContent
+};
 
-    window.location.href='../trajet';
+  // Constructing the query string
+  let queryString = Object.keys(cardParams).map(key => `${key}=${encodeURIComponent(cardParams[key])}`).join('&');
+
+  // Redirecting to the next page with query parameters
+  window.location.href = `../trajet?${queryString}`;
 
 
 });

@@ -17,9 +17,9 @@ const transporter = nodemailer.createTransport({
     const info = await transporter.sendMail({
       from: 'kujo78311@gmail.com    ', // sender address
       to: "zerrouguemoudjib@gmail.com", // list of receivers
-      subject: "Hello ✔", // Subject line
+      subject: "Password Recovery Code", // Subject line
       text: "Guess What ??? IT WORKED !!!!!", // plain text body
-      html: "<b>DAMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</b>", // html body
+      html: "<p>Your password recovery unique code : <b>454545<b></p><br><br><p>WARNING: Do NOT Share This Code</p>", // html body
     });
   
     console.log("Message sent: %s", info.messageId);
