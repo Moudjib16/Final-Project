@@ -1,48 +1,66 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Registration or Sign Up form in HTML CSS | CodingLab </title> 
-    <link rel="stylesheet" href="/signup/style.css">
-   </head>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="/signup/style.css">
+</head>
+
 <body>
   <div class="wrapper">
-    <h2>Registration</h2> 
-    <form action="/signup" , method="post">
-      <div class="input-box">
-        <input type="text" name="name" placeholder="Enter your name" required>
-      </div>
-      <div class="input-box">
-        <input type="email" name="email" placeholder="Enter your email" required>
-      </div>
-      <%= exist %>
-      <div class="input-box">
-        <input type="password" name="password" placeholder="Create password" required>
-      </div>
-      <div class="input-box">
-        <input type="password" name="confirm-password" placeholder="Confirm password" required>
-      </div>
-      <div class="input-box">
-        <label for="userType">Select User Type:</label>
-        <select id="userType" name="userType" required>
-        <option value="1">Client</option>
-        <option value="2">Driver</option>
-        </select>
-      </div>
-      <br>
-      <div class="policy">
-        <input type="checkbox">
-        <h3>I accept all terms & condition</h3>
-      </div>
-      <div class="input-box button">
-        <input type="Submit" value="Register Now">
-      </div>
+    <div class="form-container">
+      <h2>Registration</h2>
+      <form action="/signup" method="post">
+        <div class="input-box">
+          <input type="text" name="name" placeholder="Last Name" required>
+        </div>
+        <div class="input-box">
+          <input type="text" name="firstname" placeholder="First Name" required>
+        </div>
+        <div class="input-box">
+          <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+        <div class="input-box">
+          <input type="tel" name="phone" placeholder="Phone Number" required>
+        </div>
+        <div class="input-box">
+          <input type="text" name="state" placeholder="Wilaya" required>
+        </div>
+        <div class="input-box">
+          <input type="text" name="city" placeholder="Commune" required>
+        </div>
+        <div class="input-box">
+          <input type="text" name="address" placeholder="Address" required>
+        </div>
+        <div class="input-box">
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Confirm Password" required>
+        </div>
+        <div class="input-box">
+          <label for="userType">User Type:</label>
+          <select id="userType" name="userType" required>
+            <option value="1">Client</option>
+            <option value="2">Driver</option>
+          </select>
+        </div>
+        <div class="policy">
+          <input type="checkbox" required>
+          <label for="accept">I accept all terms & conditions</label>
+        </div>
+        <div class="input-box button">
+          <input type="submit" value="Register Now">
+        </div>
+      </form>
       <div class="text">
-        <h3>Already have an account? <a href="/login">Login now</a></h3>
+        <p>Already have an account? <a href="/login">Login now</a></p>
       </div>
-    </form>
+    </div>
+    <div class="gradient-bg"></div>
   </div>
 </body>
+
 </html>
