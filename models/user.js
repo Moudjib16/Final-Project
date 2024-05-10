@@ -6,7 +6,8 @@ const Schema = new mongoose.Schema({
         required : true
     },
     firstname:{
-        type : String
+        type : String,
+        required : true
     },
     password:{
         type : String,
@@ -17,16 +18,20 @@ const Schema = new mongoose.Schema({
         required : true
     },
     address:{
-        type : String
+        type : String,
+        required : true
     },
     phone:{
-        type : Number
+        type : Number,
+        required : true
     },
     city:{
-        type: String
+        type: String,
+        required : true
     },
     state:{
-        type : String
+        type : String,
+        required : true
     },
     userType:{
         type: Number,

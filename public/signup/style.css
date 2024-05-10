@@ -1,5 +1,5 @@
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 /* Global styles */
 * {
@@ -17,7 +17,6 @@ body {
   background: #0082AE;
 }
 
-/* Styles for wrapper containing the form */
 .wrapper {
   position: relative;
   max-width: 430px;
@@ -55,7 +54,11 @@ body {
   margin: 18px 0;
 }
 
-form .input-box input {
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+select {
   height: 100%;
   width: 100%;
   outline: none;
@@ -63,20 +66,23 @@ form .input-box input {
   font-size: 17px;
   font-weight: 400;
   color: #333;
-  border: 1.5px solid #c7bebe;
+  border: 1.5px solid #C7BEBE;
   border-bottom-width: 2.5px;
   border-radius: 6px;
   transition: all 0.3s ease;
 }
 
-.input-box input:focus,
-.input-box input:valid {
+input:focus,
+input:valid,
+select:focus,
+select:valid {
   border-color: #0082AE;
 }
 
-form .policy {
+.wrapper form .policy {
   display: flex;
   align-items: center;
+  margin-top: 10px; /* Added margin top */
 }
 
 form h3 {
@@ -87,11 +93,15 @@ form h3 {
 }
 
 .input-box.button input {
+  width: calc(100% - 30px); /* Adjusted width */
+  padding: 12px 15px; /* Adjusted padding */
   color: #fff;
   letter-spacing: 1px;
   border: none;
   background: #0082AE;
   cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
 }
 
 .input-box.button input:hover {
@@ -111,25 +121,4 @@ form .text h3 a {
 
 form .text h3 a:hover {
   text-decoration: underline;
-}
-
-/* Custom styles for the dropdown list */
-select#userType {
-  height: 52px;
-  width: 100%;
-  outline: none;
-  padding: 0 15px;
-  font-size: 17px;
-  font-weight: 400;
-  color: #333;
-  border: 1.5px solid #c7bebe;
-  border-bottom-width: 2.5px;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-}
-
-/* Style for dropdown list when focused or valid */
-select#userType:focus,
-select#userType:valid {
-  border-color: #0082AE;
 }
