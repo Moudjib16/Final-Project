@@ -55,8 +55,21 @@ exports.postLogin = async (req, res) => {
   }
 };
 
-
-
 exports.logout = (req, res) => {
-  res.render('../views/login');
+  res.render('logout');
+};
+
+exports.disconnect = (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error destroying session:', err);
+      return res.status(500).send('Error logging out');
+    }
+    const defaultProfile = {
+      name: "Log",
+      firstname: "In",
+      userType: 0
+    };
+    res.render('home', { stylesheet: 'home/', title: 'Home', profile: defaultProfile });
+  });
 };

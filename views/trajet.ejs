@@ -21,22 +21,22 @@
     </div>
 
     <div class="Container0">
-      <div class="place"> <p class="depart-date" id="depart-date">12:06</p> <img src="/trajet/pics/trajet/pos.svg" class="pos"> <p class="depart-place" id="depart-place">7, place Guy Leveque 00274 Paris</p><img src="pics/trajet/cotation.svg" class="cotation "></div>
+      <div class="place"> <p class="depart-date" id="depart-date"><%= trajet.depart_date  %></p> <img src="/trajet/pics/trajet/pos.svg" class="pos"> <p class="depart-place" id="depart-place"><%= trajet.depart_place  %></p><img src="pics/trajet/cotation.svg" class="cotation "></div>
 <div class="vertical-line"></div>
-      <div class="place"> <p class="arrive-date" id="arrive-date">16:06</p> <img src="/trajet/pics/trajet/pos.svg" class="pos"> <p class="arrive-place" id="arrive-place">37, place Corinne Etienne 49378 Lille</p><img src="pics/trajet/cotation.svg" class="cotation "></div>
+      <div class="place"> <p class="arrive-date" id="arrive-date"><%= trajet.arrive_date  %></p> <img src="/trajet/pics/trajet/pos.svg" class="pos"> <p class="arrive-place" id="arrive-place"><%= trajet.arrive_place  %></p><img src="pics/trajet/cotation.svg" class="cotation "></div>
 
     </div>
     <div class="Container1">
-      <div class="place"> <p>Prix total pour un passager</p><p class="Prix" id="Prix">600 da</p></div>
+      <div class="place"> <p>Prix total pour un passager</p><p class="Prix" id="Prix"><%= trajet.prix  %></p></div>
     </div>
 
     <div class="Container2">
       <div class="info">
         <div class="driver">
-          <p class="name" id="name">Kadache</p>
+          <p class="name" id="name"><%= trajet.driver_name  %></p>
           <div class="reviews">
             <img src="/trajet/pics/star.svg" class="star">
-            <p class="rate" id="rate">6/5</p>
+            <p class="rate" id="rate"><%= trajet.rate  %></p>
             <p class="avis" id="avis">- 8 avis</p>
           </div> 
         </div>

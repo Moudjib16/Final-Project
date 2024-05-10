@@ -39,7 +39,7 @@ const Schema = new mongoose.Schema({
     },
     description:{
         type: String,
-        default: "Bonjour ! je vais voir ma famille . J'ai beaucouop de place dans le coffre ." 
+        default: "" 
     },
     driver: {
         name :{

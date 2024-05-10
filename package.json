@@ -8,7 +8,8 @@
     "mongoose": "^8.3.1",
     "morgan": "^1.10.0",
     "nodemailer": "^6.9.13",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "request": "^2.88.2"
   },
   "name": "myapp",
   "version": "1.0.0",
