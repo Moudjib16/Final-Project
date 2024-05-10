@@ -1,3 +1,9 @@
+const urlParams = new URLSearchParams(window.location.search);
+const DT = urlParams.get('param');
+
+
+
+
 
 let arrow = document.getElementById('arrow');
 let menu = document.getElementById('menu');
@@ -174,10 +180,104 @@ arrow.addEventListener('click',function(){
 })
 
 let clock =document.getElementById("clock");
-let time = document.querySelectorAll('#time-option');
+
 let arr = document.getElementById('arr');
 let white = document.getElementById('white');
-let prix= document.getElementById("prix");
+let prix= document.getElementById("prix");  
+
+
+
+
+
+let test = new Date;
+
+let heure = test.getHours()
+let minute = test.getMinutes()
+console.log(heure+' : '+minute)
+
+function suggest(hr)
+{
+    
+    let hour= hr +2;
+    let minite= 10;
+    let content ;
+    while(hour<24)
+    {
+
+        while(minite<60)
+         {
+        
+            let newDiv = document.createElement("div");
+
+            newDiv.classList.add("time-option");
+            newDiv.id = "time-option";
+
+            if(minite===0)
+            {
+                content=  hour +' : '+ '00' ;
+            }
+            else
+            {
+                content=  hour +' : '+ minite ;
+            }
+         
+           newDiv.innerText=content;
+
+            prix.appendChild(newDiv);
+            
+           
+            minite=minite+10
+         }
+         hour++;
+       minite=0;
+
+     
+    }
+    
+
+}
+
+
+if (DT === test.getDate()+''+(test.getMonth()+1)+''+test.getFullYear())
+{
+ 
+    prix.innerHTML='';
+    clock.value=heure+2+' : 00'
+    suggest(heure);
+}
+
+
+
+let time = document.querySelectorAll('#time-option');
+
+
+
+
+document.addEventListener('click', function(event) {
+   
+    let isClickInside = prix.contains(event.target);
+    let isClickInside1 = clock.contains(event.target);
+    let isClickInside2 = arr.contains(event.target);
+  
+    if(!isClickInside && !isClickInside1 && !isClickInside2) 
+    {
+       
+            prix.style.display = 'none';
+            white.style.display = 'flex';
+            if( arr.style.rotate='180deg')
+            {
+                  arr.style.rotate ='0deg';
+            }
+    }
+
+  
+
+        
+    
+});
+
+
+
 
 function clockmenu(){
   
@@ -200,12 +300,11 @@ function clockmenu(){
 }
 
 arr.addEventListener('click',function(){
-       clockmenu()
+       clockmenu()     
 })
 
 
 
-console.log(clock)
 
 time.forEach(function(event) {
     event.addEventListener('click', function() {
