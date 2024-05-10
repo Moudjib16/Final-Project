@@ -13,23 +13,29 @@
     <div class="form-container">
       <h2>Registration</h2>
       <form action="/signup" method="post">
-        <div class="input-box">
-          <input type="text" name="name" placeholder="Last Name" required>
+        <div class="input-group">
+          <div class="input-box left">
+            <input type="text" name="lastname" placeholder="Last Name" required>
+          </div>
+          <div class="input-box right">
+            <input type="text" name="firstname" placeholder="First Name" required>
+          </div>
         </div>
-        <div class="input-box">
-          <input type="text" name="firstname" placeholder="First Name" required>
+        <div class="input-group">
+          <div class="input-box left">
+            <input type="email" name="email" placeholder="Email Address" required>
+          </div>
+          <div class="input-box right">
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+          </div>
         </div>
-        <div class="input-box">
-          <input type="email" name="email" placeholder="Email Address" required>
-        </div>
-        <div class="input-box">
-          <input type="tel" name="phone" placeholder="Phone Number" required>
-        </div>
-        <div class="input-box">
-          <input type="text" name="state" placeholder="Wilaya" required>
-        </div>
-        <div class="input-box">
-          <input type="text" name="city" placeholder="Commune" required>
+        <div class="input-group">
+          <div class="input-box left">
+            <input type="text" name="state" placeholder="Wilaya" required>
+          </div>
+          <div class="input-box right">
+            <input type="text" name="city" placeholder="Commune" required>
+          </div>
         </div>
         <div class="input-box">
           <input type="text" name="address" placeholder="Address" required>
@@ -59,7 +65,6 @@
         <p>Already have an account? <a href="/login">Login now</a></p>
       </div>
     </div>
-    <div class="gradient-bg"></div>
   </div>
 </body>
 

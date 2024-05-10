@@ -181,8 +181,13 @@ exports.updateDescription =  async (req, res) => {
 
 exports.getDepart = async (req, res) => {
   const profile = await User.findById(req.session.userID);
+  const defaultProfile = {
+    name: "Log",
+    firstname: "In",
+    userType: 0
+  };
   if(!profile){
-    res.render('login');
+    res.render('notsigned' , {profile : defaultProfile});
   }else{
     res.render('publier/page1' , {profile});
   }

@@ -1,29 +1,4 @@
-<nav class="navbar">
-  <ul>
-    <a href="../" class="logo">
-    <p>Fi Tri9i</p>  
-    <img src="/home/pics/car.svg" class="logo_img">
-    </a>
 
-    <a href="./search" class="Recherche" id="rech">
-      <img src="/home/pics/rech.svg" class="rech ">
-      <li class="R">Recherche</li>
-    </a>
-
-    <a href="./publier/page1" class="pub" id="pub">
-      <img src="/home/pics/plus.svg" class="plus">
-      <li class="Publiertrajet">Publier trajet</li>
-    </a>
-     <!-- this place is important it change depending on the user-->
-    <div class="auth">
-      <p class="user-name" id="user-name">Kadache ahmed rami</p>
-      <img src="/home/pics/pfp.svg" class="pfp">
-      <img src="/home/pics/arrow.svg" class="arrow" id="arrow">
-    </div>
-  </ul>
-   
-  <div class="menu" id="menu"></div>
-  <script>
 let arrow = document.getElementById('arrow');
 let menu = document.getElementById('menu');
 let visible = false;
@@ -34,26 +9,55 @@ types=['guest','client','conducteur','admine'];
 
 let user={
 
-    nom:'<%=profile.name%>',
-    prenom:'<%=profile.firstname%>',
+    nom:'kadache',
+    prenom:'ahmed rami',
     age:20,    
-    type:types[<%=profile.userType%>], 
+    type:types[1], 
+}
+
+let driver={
+    nom:'mr',
+    prenom:'Wallie',
+    age:20,    
+    type:types[2], 
+    rate:6,
+    avis:9,
+}
+
+let trajet={
+day:7,
+jour:"samedi",
+month:"avril",
+depart :["12:06","05, Batna - batna ville la garre de routierre"],  // date et la place de epart
+Arrivé :["16:06","06, Bejaia - amizour l'ecole superieur d'informatique"], // date et la place de l'arrivé
+max : 4,  // maximum des places
+reserved_places:2, // les places reservé
+places_disponible : 2 , 
+prix: 1200,
+
 
 }
 
-let pub = document.getElementById("pub");
-let rech = document.getElementById("rech");
 
-if( user.type==types[1])
-{
-    pub.style.display='none'
-}
 
-if( user.type==types[0])
-{
-    pub.href="../publier/page1";
-    rech.href="../search";
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 let admin_options=['vos trajet','Messages','Profile','Paiment','statistic','rapport','Deconxion'];
 let driver_options=['vos trajet','Messages','Profile','Paiment','Deconxion'];
@@ -62,67 +66,65 @@ let guest_options=['log in','sign up'];
 
 
 let admin_imglist=[
-'./home/pics/menu-icons/trajet.png',
-'./home/pics/menu-icons/message.png',
-'./home/pics/menu-icons/profile.png',
-'./home/pics/menu-icons/pay.svg',
-'./home/pics/menu-icons/statistic.png',
-'./home/pics/menu-icons/report.png',
-'./home/pics/menu-icons/log-out.png'
+'pics/menu-icons/trajet.png',
+'pics/menu-icons/message.png',
+'pics/menu-icons/profile.png',
+'pics/menu-icons/pay.svg',
+'pics/menu-icons/statistic.png',
+'pics/menu-icons/report.png',
+'pics/menu-icons/log-out.png'
 ];
 let driver_imglist=[
-'./home/pics/menu-icons/trajet.png',
-'./home/pics/menu-icons/message.png',
-'./home/pics/menu-icons/profile.png',
-'./home/pics/menu-icons/pay.svg',
-'./home/pics/menu-icons/log-out.png'
+'pics/menu-icons/trajet.png',
+'pics/menu-icons/message.png',
+'pics/menu-icons/profile.png',
+'pics/menu-icons/pay.svg',
+'pics/menu-icons/log-out.png'
 ];
 let client_imglist=[
-'./home/pics/menu-icons/trajet.png',
-'./home/pics/menu-icons/message.png',
-'./home/pics/menu-icons/profile.png',
-'./home/pics/menu-icons/log-out.png'
+'pics/menu-icons/trajet.png',
+'pics/menu-icons/message.png',
+'pics/menu-icons/profile.png',
+'pics/menu-icons/log-out.png'
 ];
 let guest_imglist=[
-'./home/pics/menu-icons/log.png',
-'./home/pics/menu-icons/sign.png',
+'pics/menu-icons/log.png',
+'pics/menu-icons/sign.png',
 ];
 
 
 let admin_pagelist=[
-'vosTrajets',
-'notready.html',
-'profile',
 'notready.html',
 'notready.html',
+'../Profile/pass.html',
 'notready.html',
-'logout'
+'notready.html',
+'notready.html',
+'notready.html'
 ];
 let driver_pagelist=[
-'vosTrajets',
 'notready.html',
-'profile',
 'notready.html',
-'logout'
+'../Profile/pass.html',
+'notready.html',
+'notready.html'
 ]
 client_pagelist=[
 
-'vosTrajets',
 'notready.html',
-'profile',
-'logout'
+'notready.html',
+'../Profile/pass.html',
+'notready.html'
 ]
 guest_pagelist=[
-'login',
-'signup'
+'../sign_login/auth.html',
+'../sign_login/auth.html'
 ]
     
 
+
+
 parameterValue="sign";
-
-
-
-
 
 // fonction pour ajouter un option
 function addoption(content , img_src ,page){
@@ -148,6 +150,7 @@ function addoption(content , img_src ,page){
     element.appendChild(Im);
     element.appendChild(text);
     element.appendChild(cot);
+    
     
     element.classList.add("option");
     
@@ -181,6 +184,8 @@ function create(options,imglist,pagelist)
     name.innerText=user.nom+' '+user.prenom;
 }
 
+
+
 switch(user.type){
 
     case types[0]: create(guest_options,guest_imglist,guest_pagelist); break;
@@ -189,6 +194,19 @@ switch(user.type){
     case types[3]: create(admin_options,admin_imglist,admin_pagelist);break;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 arrow.addEventListener('click',function(){
 
@@ -206,6 +224,3 @@ arrow.addEventListener('click',function(){
     
 
 })
-    
-  </script>
-</nav>
