@@ -39,7 +39,7 @@ exports.postLogin = async (req, res) => {
     const check = await user.findOne({email : req.body.email});
     if(!check){
       res.render('login/nouser');
-    }
+    }else{
     const passwordMatch = await bcrypt.compare(req.body.password, check.password);
     if(passwordMatch){
       req.session.userID = check._id;
@@ -49,7 +49,7 @@ exports.postLogin = async (req, res) => {
     else{
       res.render('login/wrongpass');
     }
-  }
+  }}
   catch {
     res.send('wrong details');
   }
