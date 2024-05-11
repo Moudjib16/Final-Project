@@ -14,7 +14,7 @@ exports.getTrajet = async (req, res) => {
             };
             res.render('trajet', {profile: defaultProfile , trajet: queryParams});
         } else {
-            res.render('trajet', {profile});
+            res.render('trajet', {profile , trajet: queryParams});
         }
     } catch (error) {
         console.error("Error retrieving profile:", error);
