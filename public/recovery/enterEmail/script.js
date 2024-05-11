@@ -1,34 +1,25 @@
+const submitButton = document.getElementById('enter-gmail');
 
-function validateEmail(email) {
- 
-    var pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    
-   
-    return pattern.test(email);
-  }
-  
-  
-  document.getElementById("enter-gmail").addEventListener("click", function(event) {
-   
-    
+submitButton.addEventListener("click", async (event) => {
     event.preventDefault();
-    var emailInput = document.getElementById("passwordInput").value.trim();
-  
-    const submitButton = document.getElementById('enter-gmail');
-  
-    var errorMessage = document.getElementById("errorMessage");
-  
-  
-    if (validateEmail(emailInput)) {
+    const emailInput = document.getElementById("passwordInput").value.trim();
+    const errorMessage = document.getElementById("errorMessage");
     
-      window.open("../Confirmation-Code/pass.html", "_self");
-    
-    } else {
-     
-      
-      errorMessage.textContent = "Please enter a valid Gmail address.";
+    try {
+        const response = await fetch('/enterEmail', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email : emailInput })
+        });
+        console.log(emailInput);
+        if (response.ok) {
+            window.location.href = '../confirmCode';
+        } else {
+            console.error('Server error:', response.status);
+        }
+    } catch (error) {
+        console.error('Error sending data to server:', error);
     }
-  });
-  
-  
-  
+});
