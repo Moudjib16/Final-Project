@@ -43,8 +43,11 @@ exports.postLogin = async (req, res) => {
     const passwordMatch = await bcrypt.compare(req.body.password, check.password);
     if(passwordMatch){
       req.session.userID = check._id;
-      req.session.usertype = check.userType; 
-      res.redirect('/');
+      req.session.usertype = check.userType;
+      const redirectUrl = req.session.returnTo || '/';
+      delete req.session.returnTo; 
+      res.redirect(redirectUrl);
+      // res.redirect('/');
     }
     else{
       res.render('login/wrongpass');

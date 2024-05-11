@@ -20,5 +20,6 @@ router.get('/publier/heure', tripController.getTime);
 router.get('/publier/people', tripController.getPlaces);
 router.get('/publier/prix', tripController.getPrice);
 router.get('/publier/description', tripController.getDescription);
+router.get('/publier/tripcreated', tripController.getCreated);
 
 module.exports = router;
