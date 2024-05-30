@@ -1,18 +1,16 @@
-const trip = require('../models/trip');
-const User = require('../models/user')
-
-
+const trip = require("../models/trip");
+const User = require("../models/user");
 
 exports.createTrip = async (req, res) => {
   try {
     const newTrip = new trip(req.body);
     const savedTrip = await newTrip.save();
     req.session.tripId = savedTrip._id;
-    console.log('Saved to database:', savedTrip);
-    res.status(200).redirect('publier/page2');
+    console.log("Saved to database:", savedTrip);
+    res.status(200).redirect("publier/page2");
   } catch (err) {
     console.log(err);
-    res.status(500).send({ message: 'Error saving to database' });
+    res.status(500).send({ message: "Error saving to database" });
   }
 };
 
@@ -21,18 +19,18 @@ exports.updateDepart0 = async (req, res) => {
     const { depart0 } = req.body;
     const tripId = req.session.tripId;
     if (!tripId) {
-      return res.status(404).send({ message: 'Trip ID not found in session' });
+      return res.status(404).send({ message: "Trip ID not found in session" });
     }
     const existingTrip = await trip.findById(tripId);
     if (!existingTrip) {
-      return res.status(404).send({ message: 'Trip not found' });
+      return res.status(404).send({ message: "Trip not found" });
     }
     existingTrip.depart0 = depart0;
     await existingTrip.save();
-    res.status(200).redirect('publier/page3');
+    res.status(200).redirect("publier/page3");
   } catch (err) {
     console.log(err);
-    res.status(500).send({ message: 'Error updating depart0' });
+    res.status(500).send({ message: "Error updating depart0" });
   }
 };
 
@@ -41,18 +39,18 @@ exports.updateArrivee = async (req, res) => {
     const { arrivee } = req.body;
     const tripId = req.session.tripId;
     if (!tripId) {
-      return res.status(404).send({ message: 'Trip ID not found in session' });
+      return res.status(404).send({ message: "Trip ID not found in session" });
     }
     const existingTrip = await trip.findById(tripId);
     if (!existingTrip) {
-      return res.status(404).send({ message: 'Trip not found' });
+      return res.status(404).send({ message: "Trip not found" });
     }
     existingTrip.arrivee = arrivee;
     await existingTrip.save();
-    res.status(200).redirect('publier/page4');
+    res.status(200).redirect("publier/page4");
   } catch (err) {
     console.log(err);
-    res.status(500).send({ message: 'Error updating arrivee' });
+    res.status(500).send({ message: "Error updating arrivee" });
   }
 };
 
@@ -61,18 +59,18 @@ exports.updateArrivee0 = async (req, res) => {
     const { arrivee0 } = req.body;
     const tripId = req.session.tripId;
     if (!tripId) {
-      return res.status(404).send({ message: 'Trip ID not found in session' });
+      return res.status(404).send({ message: "Trip ID not found in session" });
     }
     const existingTrip = await trip.findById(tripId);
     if (!existingTrip) {
-      return res.status(404).send({ message: 'Trip not found' });
+      return res.status(404).send({ message: "Trip not found" });
     }
     existingTrip.arrivee0 = arrivee0;
     await existingTrip.save();
-    res.status(200).redirect('publier/calendaire');
+    res.status(200).redirect("publier/calendaire");
   } catch (err) {
     console.log(err);
-    res.status(500).send({ message: 'Error updating depart0' });
+    res.status(500).send({ message: "Error updating depart0" });
   }
 };
 
@@ -81,22 +79,22 @@ exports.updateDate = async (req, res) => {
     let dateData = req.body.content;
     const tripId = req.session.tripId;
     if (!tripId) {
-      return res.status(404).send({ message: 'Trip ID not found in session' });
+      return res.status(404).send({ message: "Trip ID not found in session" });
     }
     const existingTrip = await trip.findById(tripId);
     if (!existingTrip) {
-      return res.status(404).send({ message: 'Trip not found' });
+      return res.status(404).send({ message: "Trip not found" });
     }
-    console.log(dateData)
+    console.log(dateData);
     if (dateData[9] === undefined) {
-      dateData = dateData.slice(0, 8) + '0' + dateData.slice(8);
+      dateData = dateData.slice(0, 8) + "0" + dateData.slice(8);
     }
-    console.log(dateData)
+    console.log(dateData);
     existingTrip.dateData = dateData;
     await existingTrip.save();
   } catch (err) {
     console.log(err);
-    res.status(500).send({ message: 'Error updating depart0' });
+    res.status(500).send({ message: "Error updating depart0" });
   }
 };
 
@@ -105,51 +103,51 @@ exports.updateTime = async (req, res) => {
     const time = req.body.content;
     const tripId = req.session.tripId;
     if (!tripId) {
-      return res.status(404).send({ message: 'Trip ID not found in session' });
+      return res.status(404).send({ message: "Trip ID not found in session" });
     }
     const existingTrip = await trip.findById(tripId);
     if (!existingTrip) {
-      return res.status(404).send({ message: 'Trip not found' });
+      return res.status(404).send({ message: "Trip not found" });
     }
     existingTrip.time = time;
     await existingTrip.save();
   } catch (err) {
     console.log(err);
-    res.status(500).send({ message: 'Error updating depart0' });
+    res.status(500).send({ message: "Error updating depart0" });
   }
 };
 
-exports.updatePlaces =  async (req, res) => {
+exports.updatePlaces = async (req, res) => {
   try {
     const places = req.body.content;
     const tripId = req.session.tripId;
 
     if (!tripId) {
-      return res.status(404).send({ message: 'Trip ID not found in session' });
+      return res.status(404).send({ message: "Trip ID not found in session" });
     }
     const existingTrip = await trip.findById(tripId);
     if (!existingTrip) {
-      return res.status(404).send({ message: 'Trip not found' });
+      return res.status(404).send({ message: "Trip not found" });
     }
     existingTrip.places = places;
     existingTrip.available_places = places;
     await existingTrip.save();
   } catch (err) {
     console.log(err);
-    res.status(500).send({ message: 'Error updating depart0' });
+    res.status(500).send({ message: "Error updating depart0" });
   }
 };
 
-exports.updatePrice =  async (req, res) => {
+exports.updatePrice = async (req, res) => {
   try {
     const price = req.body.content;
     const tripId = req.session.tripId;
     if (!tripId) {
-      return res.status(404).send({ message: 'Trip ID not found in session' });
+      return res.status(404).send({ message: "Trip ID not found in session" });
     }
     const existingTrip = await trip.findById(tripId);
     if (!existingTrip) {
-      return res.status(404).send({ message: 'Trip not found' });
+      return res.status(404).send({ message: "Trip not found" });
     }
     existingTrip.price = price;
     await existingTrip.save();
@@ -159,78 +157,83 @@ exports.updatePrice =  async (req, res) => {
   }
 };
 
-exports.updateDescription =  async (req, res) => {
+exports.updateDescription = async (req, res) => {
   try {
     const description = req.body.content;
+    const profile = await User.findById(req.session.userID);
     const tripId = req.session.tripId;
     if (!tripId) {
-      return res.status(404).send({ message: 'Trip ID not found in session' });
+      return res.status(404).send({ message: "Trip ID not found in session" });
     }
     const existingTrip = await trip.findById(tripId);
     if (!existingTrip) {
-      return res.status(404).send({ message: 'Trip not found' });
+      return res.status(404).send({ message: "Trip not found" });
     }
     existingTrip.description = description;
+    existingTrip.driver.name = profile.name;
     await existingTrip.save();
   } catch (err) {
     console.log(err);
-    res.status(500).send({ message: 'Error updating depart0' });
+    res.status(500).send({ message: "Error updating depart0" });
   }
 };
-
 
 exports.getDepart = async (req, res) => {
   const profile = await User.findById(req.session.userID);
   const defaultProfile = {
     name: "Log",
     firstname: "In",
-    userType: 0
+    userType: 0,
   };
-  if(!profile){
-    res.render('notsigned' , {profile : defaultProfile});
-  }else{
-    res.render('publier/page1' , {profile});
+  if (!profile) {
+    req.session.returnTo = req.originalUrl;
+    res.render("notsigned", { profile: defaultProfile });
+  } else {
+    res.render("publier/page1", { profile });
   }
 };
 
 exports.getDepart0 = async (req, res) => {
   const profile = await User.findById(req.session.userID);
-  res.render('publier/page2' , {profile});
+  res.render("publier/page2", { profile });
 };
 
 exports.getArrivee = async (req, res) => {
   const profile = await User.findById(req.session.userID);
-  res.render('publier/page3' , {profile});
+  res.render("publier/page3", { profile });
 };
 
 exports.getArrivee0 = async (req, res) => {
   const profile = await User.findById(req.session.userID);
-  res.render('publier/page4', {profile});
+  res.render("publier/page4", { profile });
 };
 
 exports.getDate = async (req, res) => {
   const profile = await User.findById(req.session.userID);
-  res.render('publier/calendaire', {profile});
+  res.render("publier/calendaire", { profile });
 };
 
 exports.getTime = async (req, res) => {
   const profile = await User.findById(req.session.userID);
-  res.render('publier/heure', {profile});
+  res.render("publier/heure", { profile });
 };
 
 exports.getPlaces = async (req, res) => {
   const profile = await User.findById(req.session.userID);
-  res.render('publier/people', {profile});
+  res.render("publier/people", { profile });
 };
 
 exports.getPrice = async (req, res) => {
   const profile = await User.findById(req.session.userID);
-  res.render('publier/prix', {profile});
+  res.render("publier/prix", { profile });
 };
 
 exports.getDescription = async (req, res) => {
   const profile = await User.findById(req.session.userID);
-  res.render('publier/description', {profile});
+  res.render("publier/description", { profile });
 };
 
-
+exports.getCreated = async (req, res) => {
+  const profile = await User.findById(req.session.userID);
+  res.render("publier/tripcreated", { profile });
+};

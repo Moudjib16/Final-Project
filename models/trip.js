@@ -3,19 +3,19 @@ const mongoose = require('mongoose');
 const Schema = new mongoose.Schema({
     depart: {
         type : String,
-        default: 'Setif'
+        default: ''
     },
     depart0: {
         type : String,
-        default: 'Ain Arnet'
+        default: ' '
     },
     arrivee: {
         type : String,
-        default: 'Bejaia'
+        default: ''
     },
     arrivee0: {
         type : String,
-        default: 'Amizour'
+        default: ''
     },
     dateData: {
         type : String,
@@ -23,11 +23,11 @@ const Schema = new mongoose.Schema({
     },
     time: {
         type : String,
-        default: '12:00'
+        default: ''
     },
     price: {
         type : String,
-        default: '200DA'
+        default: ''
     },
     places: {
         type : Number,
@@ -44,11 +44,11 @@ const Schema = new mongoose.Schema({
     driver: {
         name :{
         type : String,
-        default: 'Ya5o'
+        default: ''
     },
     phone :{
         type : String,
-        default: 'none'
+        default: ''
 
     },
     rate:{
