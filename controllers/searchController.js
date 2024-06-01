@@ -5,14 +5,15 @@ exports.getSearch =  async(req, res) => {
   const exclude = {_id:0 , createdAt:0 , updatedAt:0}
   const profile = await User.findById(req.session.userID).lean();
   const trips = await Trips.find({}, exclude);
-  if (!profile) {
-    const defaultProfile = {
+  const defaultProfile = {
         name: "Log",
         firstname: "In",
         userType: 0
-    };
-    res.render('search' , {trips, profile: defaultProfile});
-  } else {
+      }
+  if (!profile) {
+    req.session.returnTo = req.originalUrl;
+    res.render("notsigned", { profile: defaultProfile });
+    }else {
   res.render('search', {trips, profile });
   }
 };

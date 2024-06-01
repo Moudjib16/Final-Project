@@ -12,6 +12,7 @@ const searchRoutes = require('./routes/searchRouter');
 const trajetRoutes = require('./routes/trajetRouter');
 const payementRoutes = require('./routes/payementRouter');
 const vosTrajetsRoutes = require('./routes/vosTrajetsRouter');
+const reportRoutes = require('./routes/reportRouter');
 const errorHandler = require('./routes/errorHandler');
 // const nodemailer = require('./utils/nodemailer')
 
@@ -37,6 +38,7 @@ app.use(searchRoutes);
 app.use(trajetRoutes)
 app.use(payementRoutes);
 app.use(vosTrajetsRoutes);
+app.use(reportRoutes);
 app.use(errorHandler);
 
 // server start
