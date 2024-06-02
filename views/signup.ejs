@@ -40,11 +40,20 @@
         <div class="input-box">
           <input type="text" name="address" placeholder="Address" required>
         </div>
-        <div class="input-box">
-          <input type="password" name="password" placeholder="Password" required>
+        <div class="input-group">
+          <div class="input-box left">
+            <input type="password" name="password" placeholder="Password" required>
+          </div>
+          <div class="input-box right">
+            <input type="password" placeholder="Confirm Password" required>
+          </div>
         </div>
         <div class="input-box">
-          <input type="password" placeholder="Confirm Password" required>
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
         </div>
         <div class="input-box">
           <label for="userType">User Type:</label>
@@ -54,7 +63,7 @@
           </select>
         </div>
         <div class="policy">
-          <input type="checkbox" required>
+          <input type="checkbox" id="accept" required>
           <label for="accept">I accept all terms & conditions</label>
         </div>
         <div class="input-box button">

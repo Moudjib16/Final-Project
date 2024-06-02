@@ -3,27 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/trajet/style.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;700&display=swap">
   <title >Fi Tri9i</title>
 </head>
 <body>
 
-  <%- include('./partials/navbar.ejs')  %>
+<%-include('./partials/navbar.ejs')  %>
 
-
-  <main class="content">
+  <main class="content" id="content">
 
     <div class="date">
       <h1 class="jour" id="jour">Samedi</h1>
       <h1 class="nb" id="nb">6</h1>
       <h1 class="month" id="month">avril</h1>
     </div>
+    <div class="TripId">
+      <h1 class="tripId" id="tripId"><%= trajet.id  %></h1>
+    </div>
 
     <div class="Container0">
-      <div class="place"> <p class="depart-date" id="depart-date"><%= trajet.depart_date  %></p> <img src="/trajet/pics/trajet/pos.svg" class="pos"> <p class="depart-place" id="depart-place"><%= trajet.depart_place  %></p><img src="pics/trajet/cotation.svg" class="cotation "></div>
+      <div class="place"> <p class="depart-date" id="depart-date"><%= trajet.depart_date  %></p> <img src="pics/trajet/pos.svg" class="pos"> <p class="depart-place" id="depart-place"><%= trajet.depart_place %></p><img src="pics/trajet/cotation.svg" class="cotation "></div>
 <div class="vertical-line"></div>
-      <div class="place"> <p class="arrive-date" id="arrive-date"><%= trajet.arrive_date  %></p> <img src="/trajet/pics/trajet/pos.svg" class="pos"> <p class="arrive-place" id="arrive-place"><%= trajet.arrive_place  %></p><img src="pics/trajet/cotation.svg" class="cotation "></div>
+      <div class="place"> <p class="arrive-date" id="arrive-date"><%= trajet.arrive_date  %></p> <img src="pics/trajet/pos.svg" class="pos"> <p class="arrive-place" id="arrive-place"><%= trajet.arrive_place  %></p><img src="pics/trajet/cotation.svg" class="cotation "></div>
 
     </div>
     <div class="Container1">
@@ -35,25 +37,26 @@
         <div class="driver">
           <p class="name" id="name"><%= trajet.driver_name  %></p>
           <div class="reviews">
-            <img src="/trajet/pics/star.svg" class="star">
+            <img src="pics/star.svg" class="star">
             <p class="rate" id="rate"><%= trajet.rate  %></p>
             <p class="avis" id="avis">- 8 avis</p>
           </div> 
         </div>
     
-        <img src="/trajet/pics/pfp.svg" class="women" >
-        <img src="/trajet/pics/trajet/cotation.svg" class="cotation1">
+        <img src="pics/pfp.svg" class="women" >
+        <img src="pics/trajet/cotation.svg" class="cotation1">
       </div>
 
-      <div class="place"><img class="ico" src="/trajet/pics/trajet/sheild.svg"> <p>Profile verifiee</p></div>
-      <div class="place"><img class="ico" src="/trajet/pics/trajet/cal.svg"> <p>n'annule jamais ses trajets</p></div>
-      <div class="place"><img class="ico" src="/trajet/pics/trajet/message.svg" > <p>Contacter Julie</p></div>
-      <div class="place"><img class="ico" src="/trajet/pics/trajet/thunder.svg"> <p>Votre réservation sera confirmée instantanément</p></div>
-      <div class="place"><img class="ico" src="/trajet/pics/trajet/equipe.svg"> <p id="Max">Max. places : 4</p> <p id="Reserver" class="Reserver" >places Reservées : 2</p></div>
+      <div class="place"><img class="ico" src="pics/trajet/sheild.svg"> <p>Profile verifiee</p></div>
+      <div class="place"><img class="ico" src="pics/trajet/cal.svg"> <p>n'annule jamais ses trajets</p></div>
+      <div class="place"><img class="ico" src="pics/trajet/message.svg" > <p>Contacter Julie</p></div>
+      <div class="place"><img class="ico" src="pics/trajet/thunder.svg"> <p>Votre réservation sera confirmée instantanément</p></div>
+      <div class="place"><img class="ico" src="pics/trajet/equipe.svg"> <p id="Max">places disponible:<p id="disponible"><%= trajet.place  %></p> </p> 
+        <p id="Reserver" class="Reserver" >places :<p id="pc"></p> </p></div>
       <div class="row1">
-        <img src="/trajet/pics/pfp-men.svg" class="pf1">
-        <img src="/trajet/pics/pfp-men.svg" class="pf3">
-        <img src="/trajet/pics/pfp-men.svg" class="pf5">
+        <img src="pics/pfp-men.svg" class="pf1">
+        <img src="pics/pfp-men.svg" class="pf3">
+        <img src="pics/pfp-men.svg" class="pf5">
       </div>
      <diV class="python">
       <div class="blue-python" id="lengh"></div>
@@ -64,23 +67,50 @@
       <div class="red5"></div>
      </diV>
      <div class="row2">
-      <img src="/trajet/pics/pfp.svg" class="pf2">
-      <img src="/trajet/pics/pfp.svg" class="pf4">
+      <img src="pics/pfp.svg" class="pf2">
+      <img src="pics/pfp.svg" class="pf4">
     
     </div>
     </div>
 
     <div class="Container3">
-      <div class="place"> <p class="sig">Signaler ce trajet </p></div>
+      <div class="place" id="sig"> <p class="sig">Signaler ce trajet </p></div>
     </div>
 
-  
-    <a href="/pay" class="look"> Reserver</a>
+   
+    <div class="look" id= 'look'>
+      <div id="error"></div>
+      Reserver</div>
+   
   </main>
   
   <button class="test" id="more">+</button>
-  <button class="test" id="less">-</button>
+    <button class="test" id="less">-</button>
 
-<script src="/trajet/script.js"></script>
+
+
+    <div class="cnt" id="cnt">
+      <div class="pan">
+        <div class="titre" id="miaou">&nbsp;&nbsp;&nbsp;&nbsp;Pourquoi souhaitez-vous signaler <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ce trajet ?</div>
+        
+  
+      </div>
+      <button class="btn1" id="btn1">1. Non-respect des conditions de covoiturage</button>
+      <button class="btn2" id="btn2">2. Véhicule en mauvais état</button>
+      <button class="btn3" id="btn3">3. Comportement dangereux du conducteur</button>
+      <button class="btn4" id="btn4">4. Absence du conducteur au point de rendez-vous</button>
+      <button class="btn5" id="btn5">5. Exigences imprévues pendant le trajet</button>
+      <button class="btn6" id="btn6">6. Conflit conducteur-passager</button>
+      <div class="err" id="err"></div>
+      <button class="btn7" id="sign">Signaler</button>
+     
+    </div>
+
+
+
+
+<script src="script.js"></script>
+
+
 </body>
 </html>

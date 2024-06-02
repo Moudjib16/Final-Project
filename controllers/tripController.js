@@ -3,7 +3,11 @@ const User = require("../models/user");
 
 exports.createTrip = async (req, res) => {
   try {
-    const newTrip = new trip(req.body);
+    const tripId = Math.floor(100000 + Math.random() * 900000);
+    const newTrip = new trip({
+      id: tripId,
+      ...req.body
+    });
     const savedTrip = await newTrip.save();
     req.session.tripId = savedTrip._id;
     console.log("Saved to database:", savedTrip);
@@ -130,6 +134,9 @@ exports.updatePlaces = async (req, res) => {
       return res.status(404).send({ message: "Trip not found" });
     }
     existingTrip.places = places;
+    for (let index = 0; index < places; index++) {
+      existingTrip.passenger[index] = "";
+    }
     existingTrip.available_places = places;
     await existingTrip.save();
   } catch (err) {
@@ -187,25 +194,25 @@ exports.getDepart = async (req, res) => {
   };
   if (!profile) {
     req.session.returnTo = req.originalUrl;
-    res.render("notsigned", { profile: defaultProfile });
+    res.render("notsigned", { stylesheet: 'notsigned/', title: 'Not Signed', profile: defaultProfile });
   } else {
-    res.render("publier/page1", { profile });
+    res.render("publier/page1", { stylesheet: 'notsigned/', title: 'Wilaya', profile });
   }
 };
 
 exports.getDepart0 = async (req, res) => {
   const profile = await User.findById(req.session.userID);
-  res.render("publier/page2", { profile });
+  res.render("publier/page2", { stylesheet: 'notsigned/', title: 'Commune', profile });
 };
 
 exports.getArrivee = async (req, res) => {
   const profile = await User.findById(req.session.userID);
-  res.render("publier/page3", { profile });
+  res.render("publier/page3", { stylesheet: 'notsigned/', title: 'Wilaya', profile });
 };
 
 exports.getArrivee0 = async (req, res) => {
   const profile = await User.findById(req.session.userID);
-  res.render("publier/page4", { profile });
+  res.render("publier/page4", { stylesheet: 'notsigned/', title: 'Commune', profile });
 };
 
 exports.getDate = async (req, res) => {
@@ -215,25 +222,25 @@ exports.getDate = async (req, res) => {
 
 exports.getTime = async (req, res) => {
   const profile = await User.findById(req.session.userID);
-  res.render("publier/heure", { profile });
+  res.render("publier/heure", { stylesheet: 'notsigned/', title: 'Time', profile });
 };
 
 exports.getPlaces = async (req, res) => {
   const profile = await User.findById(req.session.userID);
-  res.render("publier/people", { profile });
+  res.render("publier/people", { stylesheet: 'notsigned/', title: 'Time', profile });
 };
 
 exports.getPrice = async (req, res) => {
   const profile = await User.findById(req.session.userID);
-  res.render("publier/prix", { profile });
+  res.render("publier/prix", { stylesheet: 'notsigned/', title: 'Time', profile });
 };
 
 exports.getDescription = async (req, res) => {
   const profile = await User.findById(req.session.userID);
-  res.render("publier/description", { profile });
+  res.render("publier/description", { stylesheet: 'notsigned/', title: 'Time', profile });
 };
 
 exports.getCreated = async (req, res) => {
   const profile = await User.findById(req.session.userID);
-  res.render("publier/tripcreated", { profile });
+  res.render("publier/tripcreated", { stylesheet: 'notsigned/', title: 'Time', profile });
 };

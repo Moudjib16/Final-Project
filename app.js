@@ -9,9 +9,10 @@ const recoveryRoutes = require('./routes/recoveryRouter');
 const profileRoutes = require('./routes/profileRouter');
 const tripRoutes = require('./routes/tripRouter');
 const searchRoutes = require('./routes/searchRouter');
-const trajetRoutes = require('./routes/trajetRouter');
+const reserveRoutes = require('./routes/reserveRouter');
 const payementRoutes = require('./routes/payementRouter');
 const vosTrajetsRoutes = require('./routes/vosTrajetsRouter');
+const reportRoutes = require('./routes/reportRouter');
 const errorHandler = require('./routes/errorHandler');
 // const nodemailer = require('./utils/nodemailer')
 
@@ -34,9 +35,10 @@ app.use(recoveryRoutes);
 app.use(profileRoutes);
 app.use(tripRoutes);
 app.use(searchRoutes);
-app.use(trajetRoutes)
+app.use(reserveRoutes)
 app.use(payementRoutes);
 app.use(vosTrajetsRoutes);
+app.use(reportRoutes);
 app.use(errorHandler);
 
 // server start

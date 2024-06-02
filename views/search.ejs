@@ -202,6 +202,7 @@
   <script>
     let cardData = [
       {
+        id : '000000',
         date: "2024-04-22",
         departure: {
           date: "12:06",
@@ -219,6 +220,7 @@
         available_places: "2 places"
       },
       {
+        id : '000000',
         date: "2024-04-22",
         departure: {
           date: "13:00",
@@ -236,6 +238,7 @@
         available_places: "1 places"
       },
       {
+        id : '000000',
         date: "2024-04-22",
         departure: {
           date: "09:30",
@@ -253,6 +256,7 @@
         available_places: "3 places"
       },
       {
+        id : '000000',
         date: "2024-04-22",
         departure: {
           date: "08:15",
@@ -270,6 +274,7 @@
         available_places: "2 places"
       },
       {
+        id : '000000',
         date: "2024-04-22",
         departure: {
           date: "10:45",
@@ -287,6 +292,7 @@
         available_places: "5 places"
       },
       {
+        id : '000000',
         date: "2024-04-22",
         departure: {
           date: "10:45",
@@ -304,6 +310,7 @@
         available_places: "5 places"
       },
       {
+        id : '000000',
         date: "2024-04-22",
         departure: {
           date: "10:45",
@@ -321,6 +328,7 @@
         available_places: "5 places"
       },
       {
+        id : '000000',
         date: "2024-04-22",
         departure: {
           date: "10:45",
@@ -338,6 +346,7 @@
         available_places: "5 places"
       },
       {
+        id : '000000',
         date: "2024-04-22",
         departure: {
           date: "10:45",
@@ -355,6 +364,7 @@
         available_places: "5 places"
       },
       {
+        id : '000000',
         date: "2024-04-22",
         departure: {
           date: "10:45",
@@ -372,6 +382,7 @@
         available_places: "5 places"
       },
       {
+        id : '000000',
         date: "2024-04-22",
         departure: {
           date: "10:45",
@@ -395,6 +406,7 @@
     for (let i = 0; i < newData.length; i++) {
       if (newData[i]) {
         console.log(cardData[i])
+        cardData[i].id = newData[i].id || "";
         cardData[i].departure = {};
         cardData[i].arrival = {};
         cardData[i].driver = {};
@@ -410,7 +422,7 @@
         console.log(cardData[i])
         }
     }
-    console.log(newData)
+    console.log(cardData)
     function findCheapestCard(cards) {
       if (cards.length === 0) {
           return null; 

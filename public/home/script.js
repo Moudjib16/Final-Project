@@ -26,7 +26,7 @@ lk.addEventListener('click', function() {
     const currentDay = currentDate.getDate();
 
 
-    if ( parseInt(year) < currentYear  || parseInt( month) < currentMonth || parseInt(day)  < currentDay  ||   input1 === '' || input2 === '' || isNaN(input3) || input3 < 1 || input3 > 5 || input4 === '' || input1===input4 ||
+    if ( parseInt(year) < currentYear  || parseInt( month) < currentMonth   ||   input1 === '' || input2 === '' || isNaN(input3) || input3 < 1 || input3 > 5 || input4 === '' || input1===input4 ||
     input1 !== "Batna" &&
     input1 !== "Adrar" &&
     input1 !== "Chlef" &&
@@ -128,10 +128,7 @@ lk.addEventListener('click', function() {
 
 ) {
 
-    if(parseInt(year) < currentYear  || parseInt( month) < currentMonth || parseInt(day) < currentDay)
-    {
-        alert('chose a valiable date');
-    }
+  
 
     if (input1 !== "Batna" &&
     input1 !== "Adrar" &&

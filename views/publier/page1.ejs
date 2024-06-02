@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <link rel="stylesheet" href="/publier/page1/style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;700&display=swap">
-  <title >Fi Tri9i</title>
+  <%-include('../partials/head.ejs')  %>
 </head>
 <body>
 
  <div id="page1">
   <%- include('../partials/navbar.ejs') %>
 
-
+<form action="/depart" method="post">
   <main class="content">
-    <form action="/depart" method="post">
+    
   
       <div class="row"> 
         <button id="btn1" ></button>
@@ -35,9 +34,9 @@
     <button id="suiv" type="submit">Suivant</button>
     <img src="pics/martyr.png" id="salut" height="550px" width="550px" alt="">
     <img src="publier/page1/pics/Group (1).png" alt="" id="hi" height="400px">
-    </form>
+    
   </main>
-
+</form>
 
  </div>
 

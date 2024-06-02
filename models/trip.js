@@ -1,63 +1,81 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const Schema = new mongoose.Schema({
+const Schema = new mongoose.Schema(
+  {
+    id: {
+      type: Number,
+    },
     depart: {
-        type : String,
-        default: ''
+      type: String,
+      default: "",
     },
     depart0: {
-        type : String,
-        default: ' '
+      type: String,
+      default: " ",
     },
     arrivee: {
-        type : String,
-        default: ''
+      type: String,
+      default: "",
     },
     arrivee0: {
-        type : String,
-        default: ''
+      type: String,
+      default: "",
     },
     dateData: {
-        type : String,
-        default: Date.now
+      type: String,
+      default: Date.now,
     },
     time: {
-        type : String,
-        default: ''
+      type: String,
+      default: "",
     },
     price: {
-        type : String,
-        default: ''
+      type: String,
+      default: "",
     },
     places: {
-        type : Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
     available_places: {
-        type : Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
-    description:{
-        type: String,
-        default: "" 
+    description: {
+      type: String,
+      default: "",
     },
     driver: {
-        name :{
-        type : String,
-        default: ''
+      name: {
+        type: String,
+        default: "",
+      },
+      phone: {
+        type: String,
+        default: "",
+      },
+      rate: {
+        type: Number,
+        default: 0,
+      },
     },
-    phone :{
-        type : String,
-        default: ''
+    passenger: [
+      {
+        type: String,
+      },{
+        type: String,
+      },{
+        type: String,
+      },{
+        type: String,
+      },{
+        type: String,
+      }
+    ]
+  },
+  { timestamps: true }
+);
 
-    },
-    rate:{
-        type : Number,
-        default: 5
-    }
-    },
-}, { timestamps: true });
-
-const trip = mongoose.models.trip || mongoose.model('trip', Schema);
+const trip = mongoose.models.trip || mongoose.model("trip", Schema);
 
 module.exports = trip;
