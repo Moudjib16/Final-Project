@@ -35,7 +35,7 @@ exports.postReserve = async (req, res) => {
         return res.status(404).send({ message: "Trip not found" });
       } else {
         const nextFreeIndex = existingTrip.passenger.findIndex((slot) => slot == "");
-        if (nextFreeIndex !== -1) {
+        if (nextFreeIndex !== -1 && existingTrip.available_places !== 0) {
           existingTrip.passenger[nextFreeIndex] = clientName;
           existingTrip.available_places = existingTrip.available_places - 1
           await existingTrip.save(); 
