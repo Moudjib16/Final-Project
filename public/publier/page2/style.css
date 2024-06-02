@@ -259,15 +259,13 @@ h1 , p{
 
 main{
   z-index: 1;
- 
   margin-top: 120px;
-  height: 1100px;
+  width: 100%;
   position: relative;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 1000px;
   padding: 0;
   background-color: #ffffff;
 }

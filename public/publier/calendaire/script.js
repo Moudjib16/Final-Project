@@ -10,7 +10,7 @@
      window.history.back();
  });
  
- // Add event listener to the "prochaine" button
+//  Add event listener to the "prochaine" button
  prochaineButton.addEventListener('click', function() {
      // Navigate to a new page
      window.location.href =url ; // Replace 'new_page.html' with the URL of the new page

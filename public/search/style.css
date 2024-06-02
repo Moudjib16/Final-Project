@@ -11,7 +11,9 @@
 
  }
 
-
+.invi{
+display: none;
+}
 /* nice scroll bar */
 ::-webkit-scrollbar {
   width: 4px;
@@ -478,7 +480,7 @@ a {
 }
 .line-img{
   position: relative;
-  left: 50px;
+  left: 57px;
   top: 2px;
 }
 

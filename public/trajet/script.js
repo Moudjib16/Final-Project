@@ -1,5 +1,7 @@
 const driverName = document.getElementById("name").innerText
 const clientName = document.getElementById("user-name").innerText
+const id = document.getElementById("tripId").innerText
+console.log(id);
 
 let i=1
 let length = document.getElementById("lengh");
@@ -49,14 +51,31 @@ updater()
 
 let errir = document.getElementById("error");
 let look = document.getElementById("look")
-look.addEventListener('click',function(){
+look.addEventListener('click',async function(){
 
     if( i== 0)
     {
         error.innerText='il faut reserver aux minimum une seulle place'
     }
-    else{
-        window.location.href='../payment-confirmation/pay/pass.html'
+    else {
+        await fetch('/reserve/create', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ clientName: clientName, id: id }),  // Ensure tripId is correctly set
+          })
+          .then(response => {
+            if (response.ok) {
+              console.log('Reason sent successfully.');
+              window.location.href = '/pay';
+            } else {
+              console.error('Failed to send reason.');
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
     }
 })
 

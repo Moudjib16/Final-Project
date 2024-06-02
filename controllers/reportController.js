@@ -26,7 +26,7 @@ exports.getReport = async (req, res) => {
         };
         if (!profile) {
             req.session.returnTo = req.originalUrl;
-            res.render("notsigned", { profile: defaultProfile });
+            res.render("notsigned", { stylesheet: 'notsigned/', title: 'Not Signed', profile: defaultProfile });
         } else {
             res.render('reports', { reports, profile });
         }

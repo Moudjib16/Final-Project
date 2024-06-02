@@ -20,116 +20,114 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="/publier/calendaire/style.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;700&display=swap">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;700&display=swap"
+    />
     <title>Calendar with Events</title>
   </head>
   <body>
-
     <main>
-    <div class="big">
-      <div class="row"> 
-        <button id="btn1" ></button>
-        <button id="btn2" ></button>
-        <button id="btn3" ></button>
-        <button id="btn4" ></button>
-        <button id="btn5" ></button>
-        <button id="btn6" ></button>
-        <button id="btn7" ></button>
-        <button id="btn8" ></button>
-        <button id="btn9" ></button>
-      </div>
-    <h1>Quand portez-vous ?</h1>
-    <div class="container">
-    
-      <div class="right">
-        <div class="today-date">
-          <div class="event-day">wed</div>
-          <div class="event-date" id="dateData">12th december 2022</div>
+      <div class="big">
+        <div class="row">
+          <button id="btn1"></button>
+          <button id="btn2"></button>
+          <button id="btn3"></button>
+          <button id="btn4"></button>
+          <button id="btn5"></button>
+          <button id="btn6"></button>
+          <button id="btn7"></button>
+          <button id="btn8"></button>
+          <button id="btn9"></button>
         </div>
-        <div class="events"></div>
-      
-      </div>
-
-      <div class="left">
-        <div class="calendar">
-          <div class="month">
-            <i class="fas fa-angle-left prev"></i>
-            <div class="date">december 2015</div>
-            <i class="fas fa-angle-right next"></i>
-          </div>
-          <div class="weekdays">
-            <div>S</div>
-            <div>M</div>
-            <div>T</div>
-            <div>W</div>
-            <div>T</div>
-            <div>F</div>
-            <div>S</div>
-          </div>
-          <div class="days"></div>
-          <div class="goto-today">
-            <div class="goto">
-              <input type="text" placeholder="mm/yyyy" class="date-input" />
-              <button class="goto-btn">Go</button>
+        <h1>Quand portez-vous ?</h1>
+        <div class="container">
+          <div class="right">
+            <div class="today-date">
+              <div class="event-day">wed</div>
+              <div class="event-date" id="dateData">12th december 2022</div>
             </div>
-            <button class="today-btn">Today</button>
+            <div class="events"></div>
+          </div>
+
+          <div class="left">
+            <div class="calendar">
+              <div class="month">
+                <i class="fas fa-angle-left prev"></i>
+                <div class="date">december 2015</div>
+                <i class="fas fa-angle-right next"></i>
+              </div>
+              <div class="weekdays">
+                <div>S</div>
+                <div>M</div>
+                <div>T</div>
+                <div>W</div>
+                <div>T</div>
+                <div>F</div>
+                <div>S</div>
+              </div>
+              <div class="days"></div>
+              <div class="goto-today">
+                <div class="goto">
+                  <input type="text" placeholder="mm/yyyy" class="date-input" />
+                  <button class="goto-btn">Go</button>
+                </div>
+                <button class="today-btn">Today</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      
-  
-    </div>
-    </div>
-  
 
-    <div class="row">
-      <button class="precedent" id="precedent">précédent</button>
-      <button class="prochaine" id="prochaine">continuer</button>
-     </div>
-  
-   
-
+      <div class="row">
+        <button class="precedent" id="precedent">précédent</button>
+        <button class="prochaine" id="prochaine">continuer</button>
+      </div>
     </main>
     <script>
-       document.getElementById('prochaine').addEventListener('click', () => {
-            const divContent = document.getElementById('dateData').innerHTML;
-            const [day, month, year] = divContent.split(' ');
-            const monthMap = {
-                January: '01',
-                February: '02',
-                March: '03',
-                April: '04',
-                May: '05',
-                June: '06',
-                July: '07',
-                August: '08',
-                September: '09',
-                October: '10',
-                November: '11',
-                December: '12'
-            };
-            const monthNumber = monthMap[month];
-            const date = `${year}-${monthNumber}-${day}`;
-            sendDataToBackend(date);
-        });
+      document.getElementById("prochaine").addEventListener("click", () => {
+        const divContent = document.getElementById("dateData").innerHTML;
+        const [day, month, year] = divContent.split(" ");
+        const monthMap = {
+          January: "01",
+          February: "02",
+          March: "03",
+          April: "04",
+          May: "05",
+          June: "06",
+          July: "07",
+          August: "08",
+          September: "09",
+          October: "10",
+          November: "11",
+          December: "12",
+        };
+        const monthNumber = monthMap[month];
+        const date = `${year}-${monthNumber}-${day}`;
+        sendDataToBackend(date);
+      });
 
-        function sendDataToBackend(content) {
-            fetch('/date', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ content }),
-            })
-            .then(response => {
-                if (response.ok) {
-                    console.log('Content sent successfully!');
-                } else {
-                    console.error('Failed to send content.');
-                }
-            })
-            .catch(error => console.error('Error:', error));
+      async function sendDataToBackend(content) {
+        try {
+          const response = await fetch("/date", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ content }),
+          });
+
+          if (response.ok) {
+            console.log("Content sent successfully!");
+            
+            return await response.json();
+          } else {
+            console.error("Failed to send content.");
+          }
+        } catch (error) {
+          console.error("Error:", error);
         }
+      }
     </script>
     <script src="/publier/calendaire/script.js"></script>
   </body>

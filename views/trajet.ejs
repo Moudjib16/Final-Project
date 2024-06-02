@@ -18,6 +18,9 @@
       <h1 class="nb" id="nb">6</h1>
       <h1 class="month" id="month">avril</h1>
     </div>
+    <div class="TripId">
+      <h1 class="tripId" id="tripId"><%= trajet.id  %></h1>
+    </div>
 
     <div class="Container0">
       <div class="place"> <p class="depart-date" id="depart-date"><%= trajet.depart_date  %></p> <img src="pics/trajet/pos.svg" class="pos"> <p class="depart-place" id="depart-place"><%= trajet.depart_place %></p><img src="pics/trajet/cotation.svg" class="cotation "></div>
@@ -48,7 +51,7 @@
       <div class="place"><img class="ico" src="pics/trajet/cal.svg"> <p>n'annule jamais ses trajets</p></div>
       <div class="place"><img class="ico" src="pics/trajet/message.svg" > <p>Contacter Julie</p></div>
       <div class="place"><img class="ico" src="pics/trajet/thunder.svg"> <p>Votre réservation sera confirmée instantanément</p></div>
-      <div class="place"><img class="ico" src="pics/trajet/equipe.svg"> <p id="Max">places disponible:<p id="disponible">2</p> </p> 
+      <div class="place"><img class="ico" src="pics/trajet/equipe.svg"> <p id="Max">places disponible:<p id="disponible"><%= trajet.place  %></p> </p> 
         <p id="Reserver" class="Reserver" >places :<p id="pc"></p> </p></div>
       <div class="row1">
         <img src="pics/pfp-men.svg" class="pf1">
