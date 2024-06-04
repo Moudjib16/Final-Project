@@ -411,7 +411,7 @@ function testdate(input_2) {
 
 lk.addEventListener("click", function () {
   er.style.display = "none";
-
+console.log(testdate(input_2))
   if (
     !testdate(input_2) ||
     input_1.value === "" ||
@@ -628,7 +628,7 @@ lk.addEventListener("click", function () {
     if(input_3.value > 5 || input_3.value <1){
       alert('number of passenger must be betxeen 1 and 5');
   }
-    show(0);
+
   
     return;
   }
