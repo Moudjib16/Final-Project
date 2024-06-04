@@ -26,48 +26,51 @@ exports.getTrajet = async (req, res) => {
 
 exports.postReserve = async (req, res) => {
   try {
-    const { clientName, id } = req.body;
+    const { clientName, id, place } = req.body;
     const existingTrip = await trip.findOne({ id: id });
     const profile = await User.findById(req.session.userID);
     if (!existingTrip) {
       console.log("Trip not found");
       return res.status(404).send({ message: "Trip not found" });
     } else {
-      const nextFreeIndex = existingTrip.passenger.findIndex(
-        (slot) => slot == ""
-      );
-      if (nextFreeIndex !== -1 && existingTrip.available_places !== 0) {
-        existingTrip.passenger[nextFreeIndex] = clientName;
-        existingTrip.available_places = existingTrip.available_places - 1;
-        profile.trips.push(id);
-        email = existingTrip.driver.email;
-        const existingNotification = await Notis.findOne({
-          driverEmail: email,
-        });
-        if (!existingNotification) {
-          console.log("NOtification not found");
-          const newNotis = new Notis({
+      for (let index = 0; index < place; index++) {
+        const nextFreeIndex = existingTrip.passenger.findIndex(
+          (slot) => slot == ""
+        );
+        if (nextFreeIndex !== -1 && existingTrip.available_places !== 0) {
+          existingTrip.passenger[nextFreeIndex] = clientName;
+          existingTrip.available_places = existingTrip.available_places - 1;
+          profile.trips.push(id);
+          email = existingTrip.driver.email;
+          const existingNotification = await Notis.findOne({
             driverEmail: email,
-            Names: [clientName],
           });
-          console.log(newNotis);
-          await newNotis.save();
+          if (!existingNotification) {
+            console.log("NOtification not found");
+            const newNotis = new Notis({
+              driverEmail: email,
+              Names: [clientName],
+            });
+            console.log(newNotis);
+            await newNotis.save();
+          } else {
+            existingNotification.Names.push(clientName);
+            console.log(existingNotification);
+            await existingNotification.save();
+          }
+          console.log(email);
+          await profile.save();
+          await existingTrip.save();
+          console.log("Saved client name to index:", nextFreeIndex);
+          
         } else {
-          existingNotification.Names.push(clientName);
-          console.log(existingNotification);
-          await existingNotification.save();
+          console.log("No free slots available in the 'passenger' array.");
+          res
+            .status(400)
+            .send("No free slots available in the 'passenger' array.");
         }
-        console.log(email);
-        await profile.save();
-        await existingTrip.save();
-        console.log("Saved client name to index:", nextFreeIndex);
-        res.status(200).redirect("/pay");
-      } else {
-        console.log("No free slots available in the 'passenger' array.");
-        res
-          .status(400)
-          .send("No free slots available in the 'passenger' array.");
       }
+      res.status(200).redirect("/pay");
     }
   } catch (err) {
     console.error("Error reserving trip:", err);

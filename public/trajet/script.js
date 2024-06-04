@@ -3,12 +3,14 @@ const clientName = document.getElementById("user-name").innerText;
 const id = document.getElementById("tripId").innerText;
 console.log(id);
 
+
 let i0 = 1;
 let length = document.getElementById("lengh");
 let plus = document.getElementById("more");
 let minuss = document.getElementById("less");
 let place = document.getElementById("pc");
 let disp = document.getElementById("disponible");
+
 
 
 place.innerText = i0;
@@ -54,7 +56,7 @@ look.addEventListener("click", async function () {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ clientName: clientName, id: id }), // Ensure tripId is correctly set
+      body: JSON.stringify({ clientName: clientName, id: id , place: place.innerText}), // Ensure tripId is correctly set
     })
       .then((response) => {
         if (response.ok) {
