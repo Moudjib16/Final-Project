@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/comments/style.css" />
+    <title>Fi Tri9i</title>
+  </head>
+  <body>
+    <%- include('./partials/navbar.ejs')%>
+    <main>
+      <div class="container">
+        <div class="left-side">
+          <div class="ret" id="ret">return</div>
+          <h1 id="driver-name"><%= driverName%></h1>
+          <img
+            id="driver-picture"
+            src="/comments/pics/pfp.svg"
+            alt="Driver Picture"
+          />
+          <h1 id="driver-rating">
+            Rating:
+            <div
+              class="stars"
+              id="stars"
+              style="
+                color: gold;
+                background-color: rgb(255, 255, 255, 0.5);
+                padding: 5px;
+                border-radius: 10px;
+              "
+            >
+              4.5 Stars
+            </div>
+          </h1>
+          <div class="star-num" id="star-num">☆☆☆☆☆</div>
+        </div>
+        <div class="right-side">
+          <div class="comment-section">
+            <h2>Leave a Comment</h2>
+            <textarea
+              id="comment-input"
+              placeholder="Write your comment here..."
+            ></textarea>
+            <div class="rating-input">
+              <label for="rating">Rating: </label>
+              <div class="card">
+                <span onclick="gfg(1)" class="star">★ </span>
+                <span onclick="gfg(2)" class="star">★ </span>
+                <span onclick="gfg(3)" class="star">★ </span>
+                <span onclick="gfg(4)" class="star">★ </span>
+                <span onclick="gfg(5)" class="star">★ </span>
+                <h3 id="output" style="display: none">0</h3>
+              </div>
+            </div>
+            <button class="butt" onclick="submitComment()">Submit</button>
+          </div>
+          <div class="comments-display">
+            <h2>Comments</h2>
+            <div id="comments-list">
+              <!-- Comments will be appended here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+        const commentsData = [];
+
+      const newData = [<%-Comments%>];
+          // console.log(newData)
+          console.log(newData[0].Names.length)
+          for (let i = 0; i < newData[0].Names.length; i++) {
+            if (newData[0]) {
+                commentsData.push({nom :newData[0].Names[i] ,commentText : newData[0].comment[i], rating : newData[0].rate[i]})
+              }
+              }
+          console.log(commentsData)
+
+      function populateComments(commentsArray) {
+          const commentsList = document.getElementById('comments-list');
+
+          commentsArray.forEach(comment => {
+              const commentDiv = document.createElement('div');
+              commentDiv.classList.add('comment');
+
+              const commentWriter = document.createElement('div');
+              commentWriter.classList.add('user');
+              commentWriter.textContent = comment.nom + ' ';
+
+              const commentTextDiv = document.createElement('div');
+              commentTextDiv.classList.add('comment-text');
+              commentTextDiv.textContent = comment.commentText;
+
+              const rating = "★".repeat(comment.rating);
+              const leftovers = "★".repeat(5 - comment.rating);
+
+              const commentRatingDiv = document.createElement('div');
+              commentRatingDiv.classList.add('comment-rating');
+              commentRatingDiv.innerHTML = `Rating: `;
+
+              const star = document.createElement('div');
+              star.classList.add('star1');
+              star.innerHTML = ` ${rating} `;
+
+              const left = document.createElement('div');
+              left.classList.add('star2');
+              left.innerHTML = ` ${leftovers} `;
+
+              commentRatingDiv.appendChild(star);
+              commentRatingDiv.appendChild(left);
+
+              commentDiv.appendChild(commentWriter);
+              commentDiv.appendChild(commentTextDiv);
+              commentDiv.appendChild(commentRatingDiv);
+
+              commentsList.appendChild(commentDiv);
+          });
+      }
+
+      // Example usage:
+      populateComments(commentsData);
+    </script>
+    <script src="/comments/comments.js"></script>
+    <script src="/comments/script.js"></script>
+  </body>
+</html>

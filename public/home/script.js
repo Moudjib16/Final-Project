@@ -1,3 +1,54 @@
+function testdate(input2){
+    const [year, month, day] = input2.split('-');
+    
+    const currentDate = new Date();
+
+  
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth() + 1;
+    const currentDay = currentDate.getDate();
+
+    if(parseInt(year) > 2025)
+    {
+        alert('2025 est le maximum');
+        return false;
+    }
+
+    if(parseInt(year) > parseInt(currentYear))
+    {
+       
+        return false;
+    }
+    else{
+        if(parseInt(year) < parseInt(currentYear)   )
+        {
+            alert('the year have to be betwen 2024-2025');
+            return false;
+            
+        }
+        else{
+            if( parseInt( month) < parseInt(currentMonth) && parseInt(year) == parseInt(currentYear))
+       {
+       alert('the month has to start from : '+currentMonth);
+        return false;
+       }
+       else{
+        if(parseInt(day) < parseInt(currentDay) && parseInt(year) == parseInt(currentYear) && parseInt( month) ==  parseInt(currentMonth))
+        {
+             alert('the day has to start from : '+currentDay); 
+             return false;
+        }
+      
+      
+      
+       }
+     
+        }
+    }
+  
+    return true;
+}
+
 
 const form = document.getElementById('myForm');
 
@@ -10,6 +61,7 @@ form.addEventListener('submit', function(event) {
 lk=document.getElementById('look');
 er= document.getElementById('error');
 lk.addEventListener('click', function() {
+
     var input1 = document.getElementById('input1').value.trim();
     var input2 = document.getElementById('input2').value.trim();
     var input4 = document.getElementById('input4').value.trim();
@@ -17,25 +69,16 @@ lk.addEventListener('click', function() {
     er.style.display="none";
 
 
-    const [year, month, day] = input2.split('-');
-
-    const currentDate = new Date();
-
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth() + 1;
-    const currentDay = currentDate.getDate();
-
-
-    if ( parseInt(year) < currentYear  || parseInt( month) < currentMonth   ||   input1 === '' || input2 === '' || isNaN(input3) || input3 < 1 || input3 > 5 || input4 === '' || input1===input4 ||
+    if (!testdate(input2) ||   input1 === '' || input2 === '' || isNaN(input3) || input3 < 1 || input3 > 5 || input4 === '' || input1===input4 ||
     input1 !== "Batna" &&
     input1 !== "Adrar" &&
     input1 !== "Chlef" &&
     input1 !== "Laghouat" &&
     input1 !== "Oum El Bouaghi" &&
     input1 !== "Batna" &&
-    input1 !== "Béjaïa" &&
+    input1 !== "Bejaia" &&
     input1 !== "Biskra" &&
-    input1 !== "Béchar" &&
+    input1 !== "bechar" &&
     input1 !== "Blida" &&
     input1 !== "Bouira" &&
     input1 !== "Tamanrasset" &&
@@ -46,22 +89,22 @@ lk.addEventListener('click', function() {
     input1 !== "Algiers (Alger)" &&
     input1 !== "Djelfa" &&
     input1 !== "Jijel" &&
-    input1 !== "Sétif" &&
-    input1 !== "Saïda" &&
+    input1 !== "Setif" &&
+    input1 !== "Saida" &&
     input1 !== "Skikda" &&
-    input1 !== "Sidi Bel Abbès" &&
+    input1 !== "Sidi Bel Abbs" &&
     input1 !== "Annaba" &&
     input1 !== "Guelma" &&
     input1 !== "Constantine" &&
-    input1 !== "Médéa" &&
+    input1 !== "Medea" &&
     input1 !== "Mostaganem" &&
-    input1 !== "M'Sila" &&
+    input1 !== "MSila" &&
     input1 !== "Mascara" &&
     input1 !== "Ouargla" &&
     input1 !== "Oran" &&
     input1 !== "El Bayadh" &&
     input1 !== "Illizi" &&
-    input1 !== "Bordj Bou Arréridj" &&
+    input1 !== "Bordj Bou Arreridj" &&
     input1 !== "Boumerdès" &&
     input1 !== "El Taref" &&
     input1 !== "Tindouf" &&
@@ -71,10 +114,10 @@ lk.addEventListener('click', function() {
     input1 !== "Souk Ahras" &&
     input1 !== "Tipaza" &&
     input1 !== "Mila" &&
-    input1 !== "Aïn Defla" &&
-    input1 !== "Naâma" &&
-    input1 !== "Aïn Témouchent" &&
-    input1 !== "Ghardaïa" &&
+    input1 !== "Ain Defla" &&
+    input1 !== "Naama" &&
+    input1 !== "Ain Temouchent" &&
+    input1 !== "Ghardaia" &&
     input1 !== "Relizane" ||
 
     input4 !== "Adrar" &&
@@ -122,7 +165,7 @@ lk.addEventListener('click', function() {
     input4 !== "Mila" &&
     input4 !== "Ain Defla" &&
     input4 !== "Naama" &&
-    input4 !== "Ain Témouchent" &&
+    input4 !== "Ain Temouchent" &&
     input4 !== "Ghardaia" &&
     input4 !== "Relizane"
 
@@ -135,7 +178,6 @@ lk.addEventListener('click', function() {
     input1 !== "Chlef" &&
     input1 !== "Laghouat" &&
     input1 !== "Oum El Bouaghi" &&
-    input1 !== "Batna" &&
     input1 !== "Bejaia" &&
     input1 !== "Biskra" &&
     input1 !== "Bechar" &&
@@ -176,16 +218,15 @@ lk.addEventListener('click', function() {
     input1 !== "Mila" &&
     input1 !== "Ain Defla" &&
     input1 !== "Naama" &&
-    input1 !== "Ain Témouchent" &&
+    input1 !== "Ain Temouchent" &&
     input1 !== "Ghardaia" &&
     input1 !== "Relizane" ||
 
-
+    input4 !== "Batna" &&
      input4 !== "Adrar" &&
     input4 !== "Chlef" &&
     input4 !== "Laghouat" &&
     input4 !== "Oum El Bouaghi" &&
-    input4 !== "Batna" &&
     input4 !== "Bejaia" &&
     input4 !== "Biskra" &&
     input4 !== "Bechar" &&
@@ -226,7 +267,7 @@ lk.addEventListener('click', function() {
     input4 !== "Mila" &&
     input4 !== "Ain Defla" &&
     input4 !== "Naama" &&
-    input4 !== "Ain Témouchent" &&
+    input4 !== "Ain Temouchent" &&
     input4 !== "Ghardaia" &&
     input4 !== "Relizane"
 
@@ -243,7 +284,9 @@ lk.addEventListener('click', function() {
            er.style.display="flex";
 
         }
-
+        if(input3 > 5 || input3 <1){
+            alert('number of passenger must be betxeen 1 and 5');
+        }
 
    return
     }

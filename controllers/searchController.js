@@ -10,6 +10,7 @@ exports.getSearch =  async(req, res) => {
         firstname: "In",
         userType: 0
       }
+  console.log(trips);
   if (!profile) {
     req.session.returnTo = req.originalUrl;
     res.render("notsigned", { stylesheet: 'notsigned/', title: 'Not Signed', profile: defaultProfile });

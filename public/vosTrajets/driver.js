@@ -12,6 +12,6 @@ document.querySelectorAll('.carte').forEach(carte => {
             passengers: passengers
         }).toString();
 
-        window.location.href = `../plan/pass.html?${queryParams}`;
+        window.location.href = `../plan/driver?${queryParams}`;
     });
 });

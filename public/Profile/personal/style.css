@@ -6,7 +6,17 @@ html body{
   padding: 0;
   overflow: hidden;
 }
-
+form {height:  100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  outline: none;
+  appearance: none;
+}
 
 
 body{
@@ -137,7 +147,7 @@ p{
 
 .card{
   animation: slideFromLeft 1s;
-
+  margin-top: 60px;
   height: 800px;
   width: 1000px;
   background-color: #E3F1F6;

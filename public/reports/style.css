@@ -33,107 +33,102 @@
     font-family: 'Roboto Serif', serif;
   }
   
+
+ li , .logo , .logo_img , .rech , .plus , p{
+  float: left;
+  margin: 0;
+ 
+}
+
+.logo_img{
+  width: 60px;
+}
+
+ul{
+  height: 99%;
+  width: 82%;
+
+  display: flex;
+  align-items: center;
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+ 
+  overflow: hidden;
+}
+
+.logo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.navbar{
+  z-index: 5;
+  padding: 10px;
   
-   li , .logo , .logo_img , .plus {
-    float: left;
-    margin: 0;
-   
-  }
+  display: flex;
+
+  position: fixed;
+  height: 80px;
+  width: 100%;
+  background-color: #0082AE;
+  justify-content: center;
+  align-items: center;
   
-  .logo_img{
-    width: 60px;
-  }
+}
+
+li{
+  display: flex;
+  cursor: pointer;
+  font-size: 30px;
+  color: #E3F1F6;
+}
+.logo{
+  zoom: 0.82;
+  cursor: pointer;
+  margin-left : 40px ;
+  font-size: 35px;
+  font-weight: bold;
+  color: #E3F1F6;
+}
+
+.Recherche{
+ 
+margin-left: auto;
+transition: all 0.3s ease-out;
+}
+
+.Recherche:hover
+{
   
-  ul{
-    height: 99%;
-    width: 70%;
+  padding-bottom: 7px;
+  border-bottom:solid 3px rgba(255, 255, 255 ,0.8) ;
+}
+
+.rech{
+  margin-right: 15px;
+width: 34px;
+}
+
+.pub{
+  margin-left: 50px;
+  transition: all 0.3s ease-out;
+}
+
+.pub:hover
+{ 
   
-    display: flex;
-    align-items: center;
-    position: relative;
-    list-style-type: none;
-    padding: 0;
-   
-    overflow: hidden;
-  }
-  
-  .logo{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-  }
-  .navbar{
-    z-index: 2;
-    padding: 10px;
-    
-    display: flex;
-  
-    position: fixed;
-    height: 100px;
-    width: 100%;
-    background-color: #0082AE;
-    justify-content: center;
-    align-items: center;
-    
-  }
-  
-  li{
-    display: flex;
-    cursor: pointer;
-    font-size: 30px;
-    color: #E3F1F6;
-  
-  }
-  .logo{
-    cursor: pointer;
-    margin-left : 40px ;
-    font-size: 35px;
-    font-weight: bold;
-    color: #E3F1F6;
-  }
-  
-  
-  
-  
-  .Recherche{
-   
-    margin-left: auto;
-    transition: all 0.3s ease-out;
-    }
-    
-    .Recherche:hover
-    {
-      
-      padding-bottom: 7px;
-      border-bottom:solid 3px rgba(255, 255, 255 ,0.8) ;
-    }
-    
-    .rech{
-      margin-right: 15px;
-    width: 34px;
-    }
-  
-  
-  
-  
-  .pub{
-    margin-left: auto;
-    transition: all 0.3s ease-out;
-  }
-  
-  .pub:hover
-  { 
-    
-    padding-bottom: 7px;
-    border-bottom:solid 3px rgba(255, 255, 255 ,0.8) ;
-  }
-  
-  .plus{
-    margin-right:15px ;
-    width: 34px;
-  }
+  padding-bottom: 7px;
+  border-bottom:solid 3px rgba(255, 255, 255 ,0.8) ;
+}
+
+.plus{
+  margin-right:15px ;
+  width: 34px;
+}
+
   
   .auth{
     z-index: 2;

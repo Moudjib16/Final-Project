@@ -1,14 +1,10 @@
-* {
-  font-family: 'Poppins', sans-serif;
-}
-
 select {
 
   appearance: none; /* Remove default styling */
   -webkit-appearance: none; /* For Safari */
   -moz-appearance: none; /* For Firefox */
   background-color: transparent; /* Set background color */
-
+  
 }
 #error{
  background-color: transparent;
@@ -20,7 +16,7 @@ select {
  width: max-content;
  overflow: hidden;
  padding: 1px;
-
+  
 }
 /* Style for when the dropdown is opened */
 select:focus {
@@ -32,7 +28,6 @@ select:focus {
 select option:hover {
   background-color: none; /* Change background color on hover */
 }
-
 
 /* nice scroll bar */
 ::-webkit-scrollbar {
@@ -55,6 +50,7 @@ html {
 }
 
 body{
+
   margin: 0;
   padding: 0;
   width: 100%;
@@ -288,6 +284,7 @@ main{
 
   z-index: 1;
   background-image: url(pics/back7.svg);
+  
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -295,6 +292,7 @@ main{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  
   width: 100%;
   height: 500px;
 
@@ -894,16 +892,16 @@ margin-bottom: auto;
 
 
 .pos1{
-    width: 15px;
+  width: 15px;
 }
 
 .suggest1, .suggest2{
-
+  
   background-color: white;
   display: none;
   flex-direction: column;
   align-items: start;
-
+  
   justify-content: start;
   color: rgba(0, 0, 0, 0.6);
   font-size: 25px;
@@ -924,18 +922,16 @@ margin-bottom: auto;
   width: 22%;
 }
 .wilaya{
-
+ 
   width: 100%;
   padding: 5px;
   padding-left: 20px;
-
+  
 }
 .wilaya:hover{
   background-color: rgba(0, 0, 0 ,0.1);
   cursor: pointer;
 }
-
-
 /* narrow desktop*/
 @media only screen and (min-width: 1025px) and (max-width: 1250px) {
   html {
@@ -1570,6 +1566,7 @@ font-size: 25px;
     height: 1000px;
 
   }
+ 
   .look{
     border-top-right-radius: 0px;
     border-bottom-left-radius: 50px;

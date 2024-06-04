@@ -177,6 +177,7 @@ exports.updateDescription = async (req, res) => {
       return res.status(404).send({ message: "Trip not found" });
     }
     existingTrip.description = description;
+    existingTrip.driver.email = profile.email;
     existingTrip.driver.name = profile.name;
     await existingTrip.save();
   } catch (err) {

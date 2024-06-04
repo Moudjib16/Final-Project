@@ -55,9 +55,9 @@ if( user.type==types[0])
     rech.href="../search";
 }
 
-let admin_options=['vos trajet','Messages','Profile','Paiment','statistic','rapport','Deconxion'];
+let admin_options=['vos trajet','Messages','Profile','Paiment','statistic','repports','Deconxion'];
 let driver_options=['vos trajet','Messages','Profile','Paiment','Deconxion'];
-let client_options=['vos trajet','Messages','Profile','Deconxion'];
+let client_options=['vos trajet','Profile','Deconxion'];
 let guest_options=['log in','sign up'];
 
 
@@ -79,7 +79,6 @@ let driver_imglist=[
 ];
 let client_imglist=[
 '/home/pics/menu-icons/trajet.png',
-'/home/pics/menu-icons/message.png',
 '/home/pics/menu-icons/profile.png',
 '/home/pics/menu-icons/log-out.png'
 ];
@@ -90,25 +89,24 @@ let guest_imglist=[
 
 
 let admin_pagelist=[
-'/vosTrajets/admin',
-'/notready.html',
+'/vosTrajets/client',
+'/notify-client',
 '/profile',
-'/notready.html',
-'/notready.html',
-'/notready.html',
+'/pay',
+'/statistic',
+'/reports',
 '/logout'
 ];
 let driver_pagelist=[
 '/vosTrajets/driver',
-'/notready.html',
+'/notify-driver',
 '/profile',
-'/notready.html',
+'/pay',
 '/logout'
 ]
 client_pagelist=[
 
 '/vosTrajets/client',
-'/notready.html',
 '/profile',
 '/logout'
 ]

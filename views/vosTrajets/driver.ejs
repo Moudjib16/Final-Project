@@ -1,51 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;700&display=swap">
-  <title >Fi Tri9i</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;700&display=swap"
+    />
+    <title>Fi Tri9i</title>
+  </head>
+  <body>
+    <nav class="navbar"></nav>
 
-  <nav class="navbar">
-   
-  </nav>
+    <main class="content">
+      <div class="t">
+        <div class="img1"><img src="pics/location 1.svg" alt="" /></div>
+        <div class="Text">Vos Trajets</div>
+        <div class="img2">
+          <img src="pics/car-sharing(1) 1 (1).svg" alt="" />
+        </div>
+      </div>
 
-
-  <main class="content">
-    <div class="t">
-      <div class="img1"><img src="pics/location 1.svg" alt=""></div>
-      <div class="Text">Vos Trajets</div>
-      <div class="img2"><img src="pics/car-sharing(1) 1 (1).svg" alt=""></div>
-  </div>
-  
-  <div class="arslane">
-      <div class="Trajet futur">
+      <div class="arslane">
+        <div class="Trajet futur">
           <!-- Future trips will be appended here -->
+        </div>
       </div>
-  </div>
-  
-  <div class="t">
-      <div class="img1"><img src="pics/location 1.svg" alt=""></div>
-      <div class="Text">Historique</div>
-      <div class="img2"><img src="pics/car-sharing(1) 1 (1).svg" alt=""></div>
-  </div>
-  
-  <div class="arslane">
-      <div class="Trajet past">
+
+      <div class="t">
+        <div class="img1"><img src="pics/location 1.svg" alt="" /></div>
+        <div class="Text">Historique</div>
+        <div class="img2">
+          <img src="pics/car-sharing(1) 1 (1).svg" alt="" />
+        </div>
+      </div>
+
+      <div class="arslane">
+        <div class="Trajet past">
           <!-- Past trips will be appended here -->
+        </div>
       </div>
-  </div>
+    </main>
 
+    <script src="trajet-driver.js"></script>
+    <script>
+      const trajets = [];
+          const newData = [<%-trips%>];
+          console.log(newData.length)
+          for (let i = 0; i < newData.length; i++) {
+            if (newData[i]) {
+                      newData[i].dateData = formatDate(newData[i].dateData)
+                      trajets.push({date : newData[i].dateData || "", heure : newData[i].time || "", departure: newData[i].depart || "", destination : newData[i].arrivee || "",  passengers : newData[i].available_places || ""})
+                    }
+          }
+          console.log(trajets)
+          function formatDate(dateString) {
 
-  </main>
+        const dateParts = dateString.split('-');
 
-  <script src="trajet-driver.js"></script>
+        const formattedDate = `${dateParts[1]}-${dateParts[2]}-${dateParts[0]}`;
 
-<script src="script.js"></script>
-<script src="driver.js"></script>
+        return formattedDate;
+      }
+    </script>
 
-</body>
+    <script src="script.js"></script>
+    <script src="driver.js"></script>
+  </body>
 </html>

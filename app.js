@@ -12,6 +12,9 @@ const searchRoutes = require('./routes/searchRouter');
 const reserveRoutes = require('./routes/reserveRouter');
 const payementRoutes = require('./routes/payementRouter');
 const vosTrajetsRoutes = require('./routes/vosTrajetsRouter');
+const statRoutes = require('./routes/statRouter');
+const notifyRoutes = require('./routes/notifyRouter');
+const commentsRoutes = require('./routes/commentsRouter');
 const reportRoutes = require('./routes/reportRouter');
 const errorHandler = require('./routes/errorHandler');
 // const nodemailer = require('./utils/nodemailer')
@@ -38,6 +41,9 @@ app.use(searchRoutes);
 app.use(reserveRoutes)
 app.use(payementRoutes);
 app.use(vosTrajetsRoutes);
+app.use(notifyRoutes);
+app.use(statRoutes);
+app.use(commentsRoutes);
 app.use(reportRoutes);
 app.use(errorHandler);
 

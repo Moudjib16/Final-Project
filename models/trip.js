@@ -46,6 +46,10 @@ const Schema = new mongoose.Schema(
       default: "",
     },
     driver: {
+      email: {
+        type: String,
+        default: "",
+      },
       name: {
         type: String,
         default: "",
